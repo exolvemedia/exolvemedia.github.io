@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Simple Accounting Platform.</title>
+ <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+ <link href="css/intlTelInput.min.css" rel="stylesheet">
+ <link href="css/countrySelect.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+ <!--SVG SPRITES:-->
+ <svg height="0" style="height: 0; width: 0; position: absolute; visibility: hidden" version="1.1" width="0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+ <symbol id="password-hide" viewbox="0 0 47 40">
+    <path d="M46.0211 19.6097C44.1072 14.7126 40.7926 10.7137 36.6333 7.98717L43.1128 1.50762L41.6052 0L34.7407 6.86447C31.255 4.99332 27.2775 3.96685 23.1075 3.96685C12.907 3.96685 3.91474 10.1042 0.204502 19.6097L0.0548096 20.0053L0.204502 20.3903C2.11843 25.2874 5.42236 29.2863 9.58167 32.0235L3.11282 38.4924L4.62043 40L11.4742 33.1462C14.9599 35.0174 18.9375 36.0438 23.1075 36.0438C33.3079 36.0438 42.3002 29.8957 46.0211 20.3903L46.1708 20.0053L46.0211 19.6097ZM2.35366 20.0053C5.82867 11.5477 13.9335 6.10532 23.1075 6.10532C26.6894 6.10532 30.1002 6.92863 33.1476 8.45763L27.5876 14.0176C26.3365 13.0767 24.7862 12.5207 23.1075 12.5207C18.9802 12.5207 15.6228 15.8781 15.6228 20.0053C15.6228 21.684 16.1788 23.2344 17.1198 24.4854L11.1321 30.4731C7.27213 28.046 4.17136 24.4427 2.35366 20.0053ZM28.4536 20.0053C28.4536 22.9457 26.0586 25.3515 23.1075 25.3515C22.0275 25.3515 21.0118 25.0307 20.1671 24.4534L27.5555 17.065C28.1329 17.899 28.4536 18.9147 28.4536 20.0053ZM17.7613 20.0053C17.7613 17.0543 20.1671 14.6592 23.1075 14.6592C24.1981 14.6592 25.2139 14.9799 26.0479 15.5573L18.6595 22.9457C18.0821 22.101 17.7613 21.0853 17.7613 20.0053ZM23.1075 33.9054C19.5255 33.9054 16.104 33.0821 13.0674 31.5531L18.6274 25.993C19.8784 26.934 21.4288 27.49 23.1075 27.49C27.2347 27.49 30.5921 24.1326 30.5921 20.0053C30.5921 18.3266 30.0361 16.7763 29.0952 15.5253L35.0829 9.53756C38.9428 11.954 42.0436 15.568 43.872 20.0053C40.3863 28.463 32.2815 33.9054 23.1075 33.9054Z"></path>
+   </symbol>
+   <symbol id="password-show" viewbox="0 0 47 33">
+    <path d="M23.4931 32.3539C13.2916 32.3539 4.29933 26.2112 0.584814 16.7046L0.432983 16.3154L0.584814 15.9262C4.29933 6.41967 13.2916 0.276932 23.4931 0.276932C33.6947 0.276932 42.6869 6.41967 46.4014 15.9262L46.5522 16.3154L46.4004 16.7046C42.6869 26.2112 33.6947 32.3539 23.4931 32.3539ZM2.7329 16.3154C6.21539 24.7741 14.318 30.2154 23.4931 30.2154C32.6682 30.2154 40.7709 24.7741 44.2533 16.3154C40.7709 7.85672 32.6682 2.4154 23.4931 2.4154C14.318 2.4154 6.21539 7.85672 2.7329 16.3154ZM23.4931 23.8001C19.3659 23.8001 16.0085 20.4416 16.0085 16.3154C16.0085 12.1882 19.3659 8.83079 23.4931 8.83079C27.6193 8.83079 30.9778 12.1882 30.9778 16.3154C30.9778 20.4416 27.6193 23.8001 23.4931 23.8001ZM23.4931 10.9693C20.5452 10.9693 18.147 13.3675 18.147 16.3154C18.147 19.2633 20.5452 21.6616 23.4931 21.6616C26.441 21.6616 28.8393 19.2633 28.8393 16.3154C28.8393 13.3675 26.441 10.9693 23.4931 10.9693Z"></path>
+   </symbol>
+  </defs>
+ </svg>
+ <div class="container-fluid navbar-light border-bottom">
+  <nav class="navbar navbar-expand-lg container">
+   <a class="navbar-brand" href="index.html"><img class="mylogo" src="img/logo.png" width="120"></a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+     <li class="nav-item active mx-md-3">
+      <a class="nav-link text-dark" href="#">Features </a>
+     </li>
+     <li class="nav-item active mx-md-3">
+      <a class="nav-link text-dark" href="#">Why Simple </a>
+     </li>
+     <li class="nav-item ml-md-2">
+      <a href="sign-in.html" class="btn btn-blue rounded-0 text-white rad-10 px-4">Sign in</a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+ </div>
+ <div class="container">
+  <div class="panel">
+   <div class="panel-body">
+    <div class="row">
+     <div class="panel-column left col-md-5 ">
+      <div class="wrapper sticky">
+       <p class="mb-4">
+        <span class="mb-4">
+         <p class="font-12">Our vision is to provide a range of easy to use business applications that form a complete suite of tools to accompany any business need. We give millions of companies easy access to the software they need to run and expand their business..
+         </p>
+         <p class="font-12">Here at Simple, we have developed 30 main applications which are regularly upgraded. In addition, our community of more than 1500 active members, have contributed another to 16000+ apps to cover a wide variety of business needs.</p>
+         <p class="font-12">- Team Simple</p>
+        </span>
+       </p>
+       <ul class="list-unstyled">
+        <li><a class="text-dark-purple" href="sign-in.html">Already have an account? Sign In</a></li>
+       </ul>
+      </div>
+     </div>
+     <div class="col-md-1">
+      <div class="divider vertical"></div>
+     </div>
+     <div class="panel-column right col-md-6">
+      <div class="wrapper">
+       <h5 class="text-center mb-3 text-blue">Create an Account</h5>
+       <form accept-charset="UTF-8" action="" class="simple_form kx-form" id="" method="post">
+        <div class="form-group email required identity_email">
+         <label class="email required form-label-caps form-label-caps" for="identity_email">E-mail Address <abbr title="required">*</abbr></label>
+         <input aria-required="true" class="string email required form-control form-control-md" id="identity_email" name="email" placeholder="name@example.com" required="required" type="email" />
+        </div>
+        <div class="form-group password required identity_password field_with_hint">
+         <label class="password required form-label-caps form-label-caps" for="identity_password">New Password <abbr title="required">*</abbr></label>
+         <div class="input-group">
+          <input aria-required="true" class="password required form-control form-control-md" id="identity_password" label="password" name="password"  placeholder="Please set your login password" required="required" type="password" />
+          <div class="input-group-append">
+           <button type="button" onclick="togglePassword()" class="btn btn-trans-border-lilac btn-md btn-caps btn-chrome-alt" id="toggle-password">
+            <svg class="icon" id="show-password">
+             <use xlink:href="#password-show"></use>
+            </svg>
+            <svg class="icon d-none" id="hide-password">
+             <use xlink:href="#password-hide"></use>
+            </svg>
+           </button>
+          </div>
+         </div>
+         <div class="hint pt-2 small">Your password must be at least 8 characters and contain uppercase, lowercase letters and numbers.</div>
+        </div>
+        <div class="form-group password required identity_password_confirmation">
+         <label class="password required form-label-caps form-label-caps" for="identity_password_confirmation">Confirm new password <abbr title="required">*</abbr></label>
+         <input aria-required="true" class="password required form-control form-control-md" id="identity_password_confirmation" name="password_confirmation" placeholder="Confirm your password" required="required" type="password" />
+        </div>
+        <p class="terms-and-conditions text-small mt-4 mb-0 small"> By signing up you agree to the Credit Wharehouse <a class="text-link" href="terms-of-use.html">Terms of Use</a> and <a class="text-dark-purple" href="privacy-policy.html">Privacy Policy</a></p>
+        <div class="cta form-group inline-group flex-column flex-sm-row mt-4">
+         <button class="btn btn-green btn-md btn-block btn-shadow order-0 order-sm-1 btn" name="button" type="submit">Sign Up</button>
+         <p class="text-center my-3">or</p>
+         <button class="btn btn-blue btn-md btn-block btn-shadow order-0 order-sm-1 btn" name="googleSignup" type="submit"><img src="img/search.svg" class="mr-2"> Sign Up</button>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="js/countrySelect.min.js"></script>
+<script src="js/intlTelInput.min.js"></script>
+<script src="js/logic.js"></script>
+</html>
