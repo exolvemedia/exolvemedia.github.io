@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Simple Accounting</title>
- <meta charset="utf-8">
- <meta content="ie=edge" http-equiv="x-ua-compatible">
- <meta content="template language" name="keywords">
- <meta content="Exolve Technologies" name="author">
- <meta content="Admin dashboard html template" name="description">
- <meta content="width=device-width, initial-scale=1" name="viewport">
- <link href="img/favicon.png" rel="shortcut icon">
- <link href="apple-touch-icon.png" rel="apple-touch-icon">
- <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
- <link href="bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
- <link href="bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
- <link href="bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
- <link href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
- <link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
- <link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
- <link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
- <link href="css/main.css?version=4.4.0" rel="stylesheet">
+	<title>Simple Accounting</title>
+	<meta charset="utf-8">
+	<meta content="ie=edge" http-equiv="x-ua-compatible">
+	<meta content="template language" name="keywords">
+	<meta content="Exolve Technologies" name="author">
+	<meta content="Admin dashboard html template" name="description">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="img/favicon.png" rel="shortcut icon">
+	<link href="apple-touch-icon.png" rel="apple-touch-icon">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
+	<link href="bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+	<link href="bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	<link href="bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+	<link href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+	<link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+	<link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+	<link href="css/main.css?version=4.4.0" rel="stylesheet">
+	<link href="css/countrySelect.min.css" rel="stylesheet">
+	<link href="css/intlTelInput.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
+
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
- <div class="all-wrapper with-side-panel solid-bg-all">
-  <div class="layout-w">
-   <!--------------------
+	<div class="all-wrapper with-side-panel solid-bg-all">
+		<div class="layout-w">
+		 <!--------------------
 START - Mobile Menu
 -------------------->
    <div class="menu-mobile menu-activated-on-click color-scheme-dark">
@@ -72,20 +76,11 @@ START - Mobile Menu List
         <span>Invoice</span>
        </a>
        <ul class="sub-menu">
-        <li>
-         <a href="create_invoice.html">Create Invoice</a>
-        </li>
-        <li>
-         <a href="recurring_invoice.html">Recurring invoice</a>
-        </li>
-        <li>
-         <a href="invoice_draft.html">Drafts</a>
-        </li>
-        <li>
+       <li>
          <a href="invoice_list.html">Invoices</a>
         </li>
         <li>
-         <a href="invoice_overdue.html">Overdues</a>
+         <a href="recurring_invoice_list.html">Recurring invoices</a>
         </li>
         <li>
          <a href="other_incomes.html">Other Incomes</a>
@@ -210,14 +205,14 @@ START - Main Menu
       </div>
       <div class="logged-user-info-w">
        <div class="logged-user-role text-center">
-        <a href="" class="text-deco" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">XYZ Company <br/><span class="small">Switch Account</span></a>
+        <a href="" class="text-deco dropdown-toggle font-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">XYZ Company </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <a class="dropdown-item" href="#">Company A</a>
-         <a class="dropdown-item" href="#">Company B</a>
+         <a class="dropdown-item small" href="#">Company A</a>
+         <a class="dropdown-item small" href="#">Company B</a>
         </div>
        </div>
       </div>
-      <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-right">
+      <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-right mr-2 ml-2">
        <i class="os-icon os-icon-ui-46"></i>
        <div class="os-dropdown">
         <div class="icon-w">
@@ -273,19 +268,10 @@ START - Main Menu
        <div class="sub-menu-i">
         <ul class="sub-menu">
          <li>
-          <a href="create_invoice.html">Create Invoice</a>
-         </li>
-         <li>
-          <a href="recurring_invoice.html">Recurring invoice</a>
-         </li>
-         <li>
-          <a href="invoice_draft.html">Drafts</a>
-         </li>
-         <li>
           <a href="invoice_list.html">Invoices</a>
          </li>
          <li>
-          <a href="invoice_overdue.html">Overdues</a>
+          <a href="recurring_invoice_list.html">Recurring invoices</a>
          </li>
          <li>
           <a href="other_incomes.html">Other Incomes</a>
@@ -413,48 +399,53 @@ START - Main Menu
    <!--------------------
 END - Main Menu
 -------------------->
-   <div class="content-w">
-    <!--------------------
+			<div class="content-w">
+				<!--------------------
 START - Top Bar
 -------------------->
-    <div class="top-bar color-scheme-transparent">
-     <!--------------------
+				<div class="top-bar color-scheme-transparent">
+					<!--------------------
 START - Top Menu Controls
 -------------------->
-     <div class="top-menu-controls">
-      <!--------------------
+					<div class="top-menu-controls">
+
+
+						<!--------------------
 START - Settings Link in secondary top menu
 -------------------->
-      <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left d-none">
-       <i class="os-icon os-icon-grid-circles"></i>
-       <div class="os-dropdown">
-        <div class="icon-w">
-         <i class="os-icon os-icon-ui-46"></i>
-        </div>
-        <ul>
-         <li>
-          <a href="create_invoice.html"><i class="os-icon os-icon-ui-49"></i><span>Create Invoice</span></a>
-         </li>
-         <li>
-          <a href="create_expense.html"><i class="os-icon os-icon-coins-4"></i><span>Create Expense</span></a>
-         </li>
-         <li>
-          <a href="invoice_list.html"><i class="os-icon os-icon-newspaper"></i><span>My
+						<div class="d-none top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+							<i class="os-icon os-icon-ui-46"></i>
+							<div class="os-dropdown">
+								<div class="icon-w">
+									<i class="os-icon os-icon-ui-46"></i>
+								</div>
+								<ul>
+									<li>
+										<a href="users_profile_small.html"><i
+                                                 class="os-icon os-icon-ui-49"></i><span>Profile Settings</span></a>
+									</li>
+									<li>
+										<a href="users_profile_small.html"><i
+                                                 class="os-icon os-icon-grid-10"></i><span>Billing Info</span></a>
+									</li>
+									<li>
+										<a href="users_profile_small.html"><i class="os-icon os-icon-ui-44"></i><span>My
             Invoices</span></a>
-         </li>
-         <li>
-          <a href="reports.html"><i class="os-icon os-icon-bar-chart-stats-up"></i><span>Reports</span></a>
-         </li>
-        </ul>
-       </div>
-      </div>
-      <!--------------------
+									</li>
+									<li>
+										<a href="users_profile_small.html"><i
+                                                 class="os-icon os-icon-ui-15"></i><span>Cancel Account</span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!--------------------
 END - Settings Link in secondary top menu
 -------------------->
-      <!--------------------
+						<!--------------------
 START - User avatar and menu in secondary top menu
 -------------------->
-      <div class="logged-user-w">
+					<div class="logged-user-w">
        <div class="logged-user-i">
         <div class="logged-user-avatar-info d-flex">
          <div class="avatar-w">
@@ -487,235 +478,266 @@ START - User avatar and menu in secondary top menu
          </ul>
         </div>
        </div>
-      </div>
-      <!--------------------
+      </div>	
+                     <!--------------------
 END - User avatar and menu in secondary top menu
 -------------------->
-     </div>
-     <!--------------------
+					</div>
+					<!--------------------
 END - Top Menu Controls
 -------------------->
-    </div>
-    <!--------------------
+				</div>
+				<!--------------------
 END - Top Bar
 -------------------->
-    <div class="content-panel-toggler">
-     <i class="os-icon os-icon-grid-squares-22"></i><span>Sidebar</span>
-    </div>
-    <div class="content-i">
-     <div class="content-box pb-0">
-      <div class="row">
-       <div class="col-sm-12">
-        <div class="element-wrapper">
-         <div class="element-actions">
-          <select class="form-control form-control-sm rounded" onchange="location = this.value;">
-           <option disabled selected>
-            Create New
-           </option>
-           <option value="create_invoice.html">
-            Create new Invoice
-           </option>
-           <option value="create_bill.html">
-            Create new Bill
-           </option>
-           <option value="creat_income.html">
-            Add other Incomes
-           </option>
-           <option value="create_expense.html">
-            Add other Expenses
-           </option>
-           <option value="create_customer.html">
-            Add new Customers
-           </option>
-           <option value="create_vendor.html">
-            Add new Vendors
-           </option>
-          </select>
+
+				<div class="content-panel-toggler">
+					<i class="os-icon os-icon-grid-squares-22"></i><span>Sidebar</span>
+				</div>
+				<div class="content-i">
+					<div class="content-box pb-0">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="element-wrapper">
+									<div class="element-actions">
+          <a href="" class="text-deco dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item small" href="create_invoice.html">Create new Invoice</a>
+           <a class="dropdown-item small" href="create_bill.html">Create new Bill</a>
+           <a class="dropdown-item small" href="add_income.html.html">Add other Income</a>
+           <a class="dropdown-item small" href="create_expense.html">Add other Expense</a>
+           <a class="dropdown-item small" href="create_customer.html">Add new Customer</a>
+           <a class="dropdown-item small" href="create_vendor.html">Add new Vendors</a>
+          </div>
          </div>
-         <h6 class="element-header">
-          Dashboard
-         </h6>
-         <div class="element-content">
-          <div class="row">
-           <div class="col-sm-12 col-xxxl-12">
-            <span class="element-box el-tablo p-2">
-            
-             
-           
-            </span>
-           </div>
-            </div>
-         </div>
-        </div>
-       </div>
-      </div>
-         <!--------------------
+									<h6 class="element-header">Add Customer</h6>
+									<div class="element-content">
+										<div class="row">
+											<div class="col-sm-12 col-xxxl-12">
+												<span class="element-box el-tablo p-2">
+				 
+              <div class="row">
+               <div class="col-md-12">
+                <h6 class="text-blue text-center font-weight-normal mt-3">Make Billing a Breeze with Client Info at Your Fingertips!</h6>
+               </div>
+				   <div class="col-md-6 my-2">
+                <p class="my-2 small">Client’s Detail</p>
+               </div>
+               	
+               <div class="col-md-6 p-2 my-1">
+                <a href="multiple-client.html" class="btn btn-green btn-sm float-right px-4">Upload Multiple</a>
+               </div>
+              </div>
+              <form>
+               <div class="section">
+                     <div class="form-row">
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">Client name</label>
+                  <input type="text" class="form-control dark" id="Client_name" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">Reference ID</label>
+                  <input type="text" class="form-control dark" id="Reference" placeholder="">
+                 </div>
+                </div>
+				   <div class="form-row">
+					    <div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">Email</label>
+                  <input type="email" class="form-control dark" id="Email" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">Phone Number </label>
+                  <input type="text" class="form-control dark" id="phoneNumber" placeholder="">
+                 </div>
+                </div>
+				   
+				   <div class="form-row">
+					    <div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">Address</label>
+                  <input type="text" class="form-control dark" id="Email" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">City</label>
+                  <input type="text" class="form-control dark" id="City" placeholder="">
+                 </div>
+                </div>
+                	
+				   
+                <div class="form-row">
+					    <div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">State</label>
+                  <input type="text" class="form-control dark" id="Email" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">Country</label>
+                  <input type="text" class="form-control dark" id="country" placeholder="">
+                 </div>
+                </div>
+				   
+          
+				   <p>Contact Persons</p>
+				    <div class="form-row">
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">First  Name</label>
+                  <input type="text" class="form-control dark" id="first_name" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">Last Name</label>
+                  <input type="text" class="form-control dark" id="last_name" placeholder="">
+                 </div>
+                </div>
+				   
+                <div class="form-row">
+					<div class="form-group col-md-6">
+                  <label class="onboard" for="inputPassword">Email</label>
+                  <input type="email" class="form-control dark" id="contactEmail" placeholder="">
+                 </div>
+                 <div class="form-group col-md-6">
+                  <label class="onboard" for="surname">Phone number</label>
+                  <input type="text" class="form-control dark" id="contactPhoneNumber" placeholder="">
+                 </div>
+                 
+                </div>
+                <div class="d-flex">
+                 <div class="col">
+                  <button class="btn-shadow float-right btn btn-blue shadow px-4">Submit</button>
+                 </div>
+                </div>
+               </div>
+              </form>
+             </span>
+
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--------------------
 START - Color Scheme Toggler
 -------------------->
-      <div class="floated-colors-btn second-floated-btn">
-       <div class="os-toggler-w">
-        <div class="os-toggler-i">
-         <div class="os-toggler-pill"></div>
-        </div>
-       </div>
-       <span>Dark </span><span>Colors</span>
-      </div>
-      <!--------------------
+						<div class="floated-colors-btn second-floated-btn">
+							<div class="os-toggler-w">
+								<div class="os-toggler-i">
+									<div class="os-toggler-pill"></div>
+								</div>
+							</div>
+							<span>Dark </span><span>Colors</span>
+						</div>
+						<!--------------------
 END - Color Scheme Toggler
 -------------------->
-     </div>
-     <!--------------------
+					</div>
+					<!--------------------
 START - Sidebar
 -------------------->
-     <div class="content-panel">
-      <div class="content-panel-close">
-       <i class="os-icon os-icon-close"></i>
-      </div>
-      <div class="element-wrapper pb-0">
-       <h6 class="element-header">
-        General Summary
-       </h6>
-       <div class="element-box-tp">
+					<div class="content-panel">
+						<div class="content-panel-close">
+							<i class="os-icon os-icon-close"></i>
+						</div>
+						<div class="element-wrapper pb-0">
+							<h6 class="element-header">
+         General Summary
+        </h6>
+							 <div class="element-box-tp">
         <div class="el-buttons-list full-width">
          <a class="element-box el-tablo p-2" href="#">
-          <div class="label color-default mb-2">
-           EXPENSE TRACKER
+          <div class="color-default mb-2">
+           Financial accounts
           </div>
-          <p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
-          <div class="label color-default mb-2">
-           EXPENSE TRACKER
+          <p class="small mb-0"><b>Cash on Hand (Other)</b></p>
+          <p class="small mb-2"><img src="img/custom-icons/Ellipse%202.svg" alt="reconciled" class="mb-1" />  <b>Reconciled</b></p>
+          <p class="small mb-1">Balance in books: NGN 0.00</p>
+          <p class="small">Statement balance: NGN 0.00</p>
+          <div class="color-default mb-2">
+           Result this month <span class="text-dark small">(February)</span>
           </div>
-          <p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
+          <p class="small mb-0">Sales</p>
+          <p class="small">NGN 0.00</p>
+          <p class="small mb-0">Purchases / Expenses</p>
+          <p class="small">NGN 0.00</p>
+          <div class="border-bottom"></div>
+          <p class="small my-2">Result	NGN 0.00</p>
          </a>
         </div>
        </div>
-      </div>
-      <div class="element-wrapper">
-       <div class="element-box-tp">
-        <div class="el-buttons-list full-width">
-         <span class="element-box el-tablo p-2" href="#">
-          <div class="label text-center color-default mb-2">
-           <div class="os-progress-bar primary">
-            <div class="bar-level-2" style="width: 100%">
-             <div class="bar-level-3" style="width: 25%"></div>
+    
+						</div>
+
+						<div class="element-wrapper">
+
+							<div class="element-box-tp">
+								<div class="el-buttons-list full-width">
+									<span class="element-box el-tablo p-2" href="#">
+
+           <div class="label text-center color-default mb-2">
+            <div class="os-progress-bar primary">
+             <div class="bar-level-2" style="width: 100%">
+              <div class="bar-level-3" style="width: 25%"></div>
+             </div>
             </div>
+            Billing $ Subscription Status
            </div>
-           Billing $ Subscription Status
-          </div>
-          <p class="small text-center">You haven't registered any purchases or expenses
-           yet. Let's help keep track of your expenses by creating you first purchase.
-          </p>
-          <div class="mb-1 text-center">
-           <a href="upgrade.html" class="btn btn-simple text-white btn-sm btn-block px-5 mt-3">Upgrade</a>
-          </div>
-         </span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <!--------------------
+           <p class="small text-center">You haven't registered any purchases or expenses
+            yet. Let's help keep track of your expenses by creating you first purchase.
+           </p>
+
+           <div class="mb-1 text-center">
+            <button
+                    class="btn btn-simple text-white btn-sm btn-block px-5 mt-3">Upgrade</button>
+           </div>
+          </span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--------------------
 END - Sidebar
 -------------------->
-    </div>
-    <div class="container">
-     <div class="row pt-4">
-      <div class="col-sm-12">
-       <!--START - Recent Ticket Comments-->
-       <div class="element-wrapper">
-        <h6 class="element-header">Recent Transactions</h6>
-        <div class="element-box-tp">
-         <div class="table-responsive">
-          <table class="table table-padded">
-           <thead>
-            <tr>
-             <th>Status</th>
-             <th>Date</th>
-             <th>Description</th>
-             <th class="text-center">Category</th>
-             <th>Amount</th>
-            </tr>
-           </thead>
-           <tbody>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller green"></span><span>Active</span>
-             </td>
-             <td><span>Today</span><span class="smaller lighter">1:52am</span>
-             </td>
-             <td>
-              <div class="smaller lighter">I have enabled the software for you, you can try now...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-success-inverted" href="">Shopping</a></td>
-             <td>
-              <div class="smaller lighter text-success">+N180, 000</div>
-             </td>
-            </tr>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller red"></span><span>Closed</span>
-             </td>
-             <td><span>Jan 19th</span><span class="smaller lighter">3:22pm</span>
-             </td>
-             <td>
-              <div class="smaller lighter">Please approve this request so we can move...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-danger-inverted" href="">Cafe</a></td>
-             <td>
-              <div class="smaller lighter text-danger">-N80, 000</div>
-             </td>
-            </tr>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller yellow"></span><span>Pending</span>
-             </td>
-             <td><span>Yesterday</span><span class="smaller lighter">7:45am</span></td>
-             <td>
-              <div class="smaller lighter">We will need some login credentials to make...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-warning-inverted" href="">Restaurants</a></td>
-             <td>
-              <div class="smaller lighter text-danger">-N50, 000</div>
-             </td>
-            </tr>
-           </tbody>
-          </table>
-         </div>
-        </div>
-       </div>
-       <!--END - Recent Ticket Comments-->
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <div class="display-type"></div>
- </div>
- <script src="bower_components/jquery/dist/jquery.min.js"></script>
- <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
- <script src="bower_components/moment/moment.js"></script>
- <script src="bower_components/chart.js/dist/Chart.min.js"></script>
- <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
- <script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
- <script src="bower_components/ckeditor/ckeditor.js"></script>
- <script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
- <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
- <script src="bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
- <script src="bower_components/dropzone/dist/dropzone.js"></script>
- <script src="bower_components/editable-table/mindmup-editabletable.js"></script>
- <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
- <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
- <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
- <script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
- <script src="bower_components/tether/dist/js/tether.min.js"></script>
- <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
- <script src="bower_components/bootstrap/js/dist/util.js"></script>
- <script src="bower_components/bootstrap/js/dist/alert.js"></script>
- <script src="bower_components/bootstrap/js/dist/button.js"></script>
- <script src="bower_components/bootstrap/js/dist/carousel.js"></script>
- <script src="bower_components/bootstrap/js/dist/collapse.js"></script>
- <script src="bower_components/bootstrap/js/dist/dropdown.js"></script>
- <script src="bower_components/bootstrap/js/dist/modal.js"></script>
- <script src="bower_components/bootstrap/js/dist/tab.js"></script>
- <script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
- <script src="bower_components/bootstrap/js/dist/popover.js"></script>
- <script src="js/demo_customizer.js?version=4.4.0"></script>
- <script src="js/main.js?version=4.4.0"></script>
+				</div>
+
+			</div>
+		</div>
+		<div class="display-type"></div>
+	</div>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
+	<script src="bower_components/moment/moment.js"></script>
+	<script src="bower_components/chart.js/dist/Chart.min.js"></script>
+	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+	<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+	<script src="bower_components/ckeditor/ckeditor.js"></script>
+	<script src="bower_components/bootstrap-validator/dist/validator.min.js"></script>
+	<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+	<script src="bower_components/dropzone/dist/dropzone.js"></script>
+	<script src="bower_components/editable-table/mindmup-editabletable.js"></script>
+	<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="bower_components/tether/dist/js/tether.min.js"></script>
+	<script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+	<script src="bower_components/bootstrap/js/dist/util.js"></script>
+	<script src="bower_components/bootstrap/js/dist/alert.js"></script>
+	<script src="bower_components/bootstrap/js/dist/button.js"></script>
+	<script src="bower_components/bootstrap/js/dist/carousel.js"></script>
+	<script src="bower_components/bootstrap/js/dist/collapse.js"></script>
+	<script src="bower_components/bootstrap/js/dist/dropdown.js"></script>
+	<script src="bower_components/bootstrap/js/dist/modal.js"></script>
+	<script src="bower_components/bootstrap/js/dist/tab.js"></script>
+	<script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
+	<script src="bower_components/bootstrap/js/dist/popover.js"></script>
+	<script src="js/demo_customizer.js?version=4.4.0"></script>
+	<script src="js/intlTelInput.min.js"></script>
+	<script src="js/countrySelect.min.js"></script>
+	<script src="js/main.js?version=4.4.0"></script>
+	<script src="js/logic.js?version=4.4.0"></script>
+
 </body>
+
 </html>
