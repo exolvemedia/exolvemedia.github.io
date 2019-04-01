@@ -28965,3 +28965,24 @@ Contents:
 	background-color: #157fcc;
 	color: aliceblue;
 }
+.text-deco{
+ text-decoration: none !important;
+}
+
+a.text-deco:hover{
+ text-decoration: none !important;
+}
+.font-13{
+ font-size: 13px !important;
+}
+select::placeholder{
+ color: #4F4F4F !important;
+}
+
+.font-14{
+ font-size: 14px !important;
+}
+
+.font-10{
+ font-size: 10px !important;
+}

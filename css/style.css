@@ -1,7 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
- font-family: 'Poppins', sans-serif !important;
- font-size: 14px !important;
+ font-family: 'Poppins', sans-serif;
  background-color: #ffffff !important;
 }
 .banner{
@@ -14,6 +13,12 @@ body {
 .none{
 	display: none;
 }
+.text-deco{
+ text-decoration: none !important;
+}
+a.text-deco:hover{
+ text-decoration: none !important;
+}
 .btn-login-success{
  color: #fff;
  background-color: #8FC038 !important;
@@ -25,6 +30,26 @@ body {
 
 .btn-green:hover, .btn-login-success:hover{
  background-color:  #7DA830;
+ color: #ffffff;
+}
+
+.btn-green-dark{
+ background-color:  #2FB05F;
+ color: #ffffff;
+}
+
+.btn-green-dark:hover, .btn-login-success:hover{
+ background-color:  #2FB05F;
+ color: #ffffff;
+}
+
+.btn-gray{
+ background-color:  #8C8C8C;
+ color: #ffffff;
+}
+
+.btn-gray:hover, .btn-login-success:hover{
+ background-color:  #8C8C8C;
  color: #ffffff;
 }
 .text-blue{
@@ -125,6 +150,7 @@ p.line span {
  padding-top: 60px;
  padding-bottom: 40px;
 }
+/*
 .content-panel {
  padding: 2rem;
  -webkit-box-flex: 0;
@@ -157,6 +183,7 @@ p.line span {
  -ms-flex: 1;
  flex: 1;
 }
+*/
 .btn.btn-chrome:not(.disabled):not(:disabled)::before, .btn.btn-chrome-alt:not(.disabled):not(:disabled)::before {
  position: absolute;
  right: 0;
@@ -280,6 +307,15 @@ select.onboard{
 #upload{
  display:none
 }
+.h-30{
+ height: 30px !important;
+}
+.font-14{
+ font-size: 14px !important;
+}
+.font-13{
+ font-size: 14px !important;
+}
 .blue-select{
 	background-color: #157FCC !important;
 	color: #fff !important
@@ -292,4 +328,10 @@ select.onboard{
     color: #157FCC !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width:320px) and (max-width:420px){
+ .sm-none{
+  display: none !important;
+ }
 }

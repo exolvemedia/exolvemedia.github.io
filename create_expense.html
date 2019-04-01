@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
  <title>Simple Accounting</title>
  <meta charset="utf-8">
@@ -18,8 +19,11 @@
  <link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
  <link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
  <link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
  <link href="css/main.css?version=4.4.0" rel="stylesheet">
+ <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
  <div class="all-wrapper with-side-panel solid-bg-all">
   <div class="layout-w">
@@ -52,7 +56,7 @@ START - Mobile Menu
        </div>
       </div>
      </div>
-     <!--------------------
+        <!--------------------
 START - Mobile Menu List
 -------------------->
      <ul class="main-menu">
@@ -73,19 +77,10 @@ START - Mobile Menu List
        </a>
        <ul class="sub-menu">
         <li>
-         <a href="create_invoice.html">Create Invoice</a>
-        </li>
-        <li>
-         <a href="recurring_invoice.html">Recurring invoice</a>
-        </li>
-        <li>
-         <a href="invoice_draft.html">Drafts</a>
-        </li>
-        <li>
          <a href="invoice_list.html">Invoices</a>
         </li>
         <li>
-         <a href="invoice_overdue.html">Overdues</a>
+         <a href="recurring_invoice_list.html">Recurring invoice</a>
         </li>
         <li>
          <a href="other_incomes.html">Other Incomes</a>
@@ -94,7 +89,7 @@ START - Mobile Menu List
          <a href="payment.html">Payment</a>
         </li>
         <li>
-         <a href="customer.html">Customers</a>
+         <a href="customers.html">Customers</a>
         </li>
         <li>
          <a href="products.html">Products and Services</a>
@@ -210,14 +205,14 @@ START - Main Menu
       </div>
       <div class="logged-user-info-w">
        <div class="logged-user-role text-center">
-        <a href="" class="text-deco" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">XYZ Company <br/><span class="small">Switch Account</span></a>
+        <a href="" class="text-deco dropdown-toggle font-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">XYZ Company </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <a class="dropdown-item" href="#">Company A</a>
-         <a class="dropdown-item" href="#">Company B</a>
+         <a class="dropdown-item small" href="#">Company A</a>
+         <a class="dropdown-item small" href="#">Company B</a>
         </div>
        </div>
       </div>
-      <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-right">
+      <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-right mx-1">
        <i class="os-icon os-icon-ui-46"></i>
        <div class="os-dropdown">
         <div class="icon-w">
@@ -273,19 +268,10 @@ START - Main Menu
        <div class="sub-menu-i">
         <ul class="sub-menu">
          <li>
-          <a href="create_invoice.html">Create Invoice</a>
-         </li>
-         <li>
-          <a href="recurring_invoice.html">Recurring invoice</a>
-         </li>
-         <li>
-          <a href="invoice_draft.html">Drafts</a>
-         </li>
-         <li>
           <a href="invoice_list.html">Invoices</a>
          </li>
          <li>
-          <a href="invoice_overdue.html">Overdues</a>
+          <a href="recurring_invoice_list.html">Recurring invoice</a>
          </li>
          <li>
           <a href="other_incomes.html">Other Incomes</a>
@@ -508,48 +494,122 @@ END - Top Bar
        <div class="col-sm-12">
         <div class="element-wrapper">
          <div class="element-actions">
-          <select class="form-control form-control-sm rounded" onchange="location = this.value;">
-           <option disabled selected>
-            Create New
-           </option>
-           <option value="create_invoice.html">
-            Create new Invoice
-           </option>
-           <option value="create_bill.html">
-            Create new Bill
-           </option>
-           <option value="creat_income.html">
-            Add other Incomes
-           </option>
-           <option value="create_expense.html">
-            Add other Expenses
-           </option>
-           <option value="create_customer.html">
-            Add new Customers
-           </option>
-           <option value="create_vendor.html">
-            Add new Vendors
-           </option>
-          </select>
+          <a href="" class="text-deco dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item small" href="create_invoice.html">Create new Invoice</a>
+           <a class="dropdown-item small" href="create_bill.html">Create new Bill</a>
+           <a class="dropdown-item small" href="add_income.html.html">Add other Income</a>
+           <a class="dropdown-item small" href="create_expense.html">Add other Expense</a>
+           <a class="dropdown-item small" href="create_customer.html">Add new Customer</a>
+           <a class="dropdown-item small" href="create_vendor.html">Add new Vendors</a>
+          </div>
          </div>
          <h6 class="element-header">
-          Dashboard
+          Create Expense
          </h6>
          <div class="element-content">
           <div class="row">
            <div class="col-sm-12 col-xxxl-12">
             <span class="element-box el-tablo p-2">
-            
+             <form class="p-3">
              
-           
+              <div class="form-row ">
+               <div class="form-group col-md-8">
+                <label class="onboard" for="vendor">Vendor</label>
+                <select id="customers" class="form-control form-control-sm" data-style="btn-default">
+                 <option disabled selected>Choose Client</option>
+                 <option value="" data-toggle="modal" data-target="#exampleModalCenter">Add New Client</option>
+                 <option>Client Exolve</option>
+                </select>
+               </div>
+               <div class="form-group col-md-4">
+                <label class="onboard" for="reference">Your Reference</label>
+                <input type="text" class="form-control form-control-sm dark" id="reference" placeholder="">
+               </div>
+              </div>
+              <div class="form-row">
+               <div class="form-group col-md-3">
+                <label class="onboard" for="issued_date">Issued date</label>
+                <input type="text" class="form-control form-control-sm dark" id="issued_date" placeholder="">
+               </div>
+               <div class="form-group col-md-3">
+                <label class="onboard" for="due_date">Due Date</label>
+                <input type="text" class="form-control form-control-sm dark" id="due_date" placeholder="">
+               </div>
+               <div class="form-group col-md-3">
+                <label class="onboard" for="category">Category</label>
+                <select id="category" class="selectpicker form-control small" data-style="btn-default">
+                 <option disabled selected>Choose Category</option>
+                 <option>sales</option>
+             
+                </select>
+               </div>
+               <div class="form-group col-md-3">
+                <label class="onboard" for="surname">Payment Term</label>
+                <select class="selectpicker form-control small" data-style="btn-default">
+                 <option disabled selected>Choose Terms</option>
+                 <option>30 Days from Invoice Date</option>
+                 <option>90 Days from Invoice Date</option>
+                 <option>120 Days from Invoice Date</option>
+                </select>
+               </div>
+              </div>
+            
+              <hr>
+              <p>Expense Line</p>
+              <div class="form-row append-line">
+               <div class="form-group col-md-4">
+                <label class="onboard" for="item">Item*
+                </label>
+                <input required type="text" class="form-control dark form-control-sm" id="item" placeholder="">
+               </div>
+               <div class="form-group col-md-4">
+                <label class="onboard" for="description">Description</label>
+                <input type="text" class="form-control dark form-control-sm" id="description" placeholder="">
+               </div>
+               <div class="form-group col-md-3">
+                <label class="onboard" for="unit_price">Unit Price</label>
+                <input type="text" class="form-control dark form-control-sm" id="unit_price" placeholder="">
+               </div>
+               <div class="form-group col-md-1 text-center">
+                <!--                <img src="img/custom-icons/delete.svg" alt="delete" class="mt-4 pt-1" />-->
+               </div>
+               <div class="form-group col-md-2">
+                <label class="onboard" for="quantity">Quantity</label>
+                <input type="text" class="form-control form-control-sm dark" id="quantity" placeholder="">
+               </div>
+               <div class="form-group col-md-3">
+                <label class="onboard" for="tax">Tax</label>
+                <input type="text" class="form-control form-control-sm dark" id="tax" placeholder="">
+               </div>
+               
+               <div class="form-group col-md-3 ml-auto mt-3">
+                <label class="onboard" for="discount">Net Total</label>
+                <p class="font-12">$000.000.00</p>
+               </div>
+              </div>
+              <hr />
+              <div class="row my-3">
+               <div class="col text-center">
+                <p class="small" id="add_row" href="#"> + Add another line item </p>
+               </div>
+              </div>
+              
+              <div class="form-row my-5">
+               <div class="col-md-8 ml-auto px-3 mr-0">
+                <a href="#" class="btn btn-gray px-4">Cancel</a>
+                <a href="invoice_preview.html" class="btn btn-simple text-white px-4">Save</a>
+               </div>
+              </div>
+             </form>
             </span>
            </div>
-            </div>
+          </div>
          </div>
         </div>
        </div>
       </div>
-         <!--------------------
+      <!--------------------
 START - Color Scheme Toggler
 -------------------->
       <div class="floated-colors-btn second-floated-btn">
@@ -578,14 +638,22 @@ START - Sidebar
        <div class="element-box-tp">
         <div class="el-buttons-list full-width">
          <a class="element-box el-tablo p-2" href="#">
-          <div class="label color-default mb-2">
-           EXPENSE TRACKER
+          <div class="color-default mb-2">
+           Financial accounts
           </div>
-          <p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
-          <div class="label color-default mb-2">
-           EXPENSE TRACKER
+          <p class="small mb-0"><b>Cash on Hand (Other)</b></p>
+          <p class="small mb-2"><img src="img/custom-icons/Ellipse%202.svg" alt="reconciled" class="mb-1" />  <b>Reconciled</b></p>
+          <p class="small mb-1">Balance in books: NGN 0.00</p>
+          <p class="small">Statement balance: NGN 0.00</p>
+          <div class="color-default mb-2">
+           Result this month <span class="text-dark small">(February)</span>
           </div>
-          <p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
+          <p class="small mb-0">Sales</p>
+          <p class="small">NGN 0.00</p>
+          <p class="small mb-0">Purchases / Expenses</p>
+          <p class="small">NGN 0.00</p>
+          <div class="border-bottom"></div>
+          <p class="small my-2">Result	NGN 0.00</p>
          </a>
         </div>
        </div>
@@ -617,71 +685,115 @@ START - Sidebar
 END - Sidebar
 -------------------->
     </div>
-    <div class="container">
-     <div class="row pt-4">
-      <div class="col-sm-12">
-       <!--START - Recent Ticket Comments-->
-       <div class="element-wrapper">
-        <h6 class="element-header">Recent Transactions</h6>
-        <div class="element-box-tp">
-         <div class="table-responsive">
-          <table class="table table-padded">
-           <thead>
-            <tr>
-             <th>Status</th>
-             <th>Date</th>
-             <th>Description</th>
-             <th class="text-center">Category</th>
-             <th>Amount</th>
-            </tr>
-           </thead>
-           <tbody>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller green"></span><span>Active</span>
-             </td>
-             <td><span>Today</span><span class="smaller lighter">1:52am</span>
-             </td>
-             <td>
-              <div class="smaller lighter">I have enabled the software for you, you can try now...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-success-inverted" href="">Shopping</a></td>
-             <td>
-              <div class="smaller lighter text-success">+N180, 000</div>
-             </td>
-            </tr>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller red"></span><span>Closed</span>
-             </td>
-             <td><span>Jan 19th</span><span class="smaller lighter">3:22pm</span>
-             </td>
-             <td>
-              <div class="smaller lighter">Please approve this request so we can move...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-danger-inverted" href="">Cafe</a></td>
-             <td>
-              <div class="smaller lighter text-danger">-N80, 000</div>
-             </td>
-            </tr>
-            <tr>
-             <td class="nowrap"><span class="status-pill smaller yellow"></span><span>Pending</span>
-             </td>
-             <td><span>Yesterday</span><span class="smaller lighter">7:45am</span></td>
-             <td>
-              <div class="smaller lighter">We will need some login credentials to make...</div>
-             </td>
-             <td class="text-center"><a class="badge badge-warning-inverted" href="">Restaurants</a></td>
-             <td>
-              <div class="smaller lighter text-danger">-N50, 000</div>
-             </td>
-            </tr>
-           </tbody>
-          </table>
+   </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">Add a Vendor</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <form id="add_customer" class="" method="post" action="">
+
+      <div class="modal-body">
+       <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+         <a class="nav-dash nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Contact</a>
+         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Billing</a>
+         <a class="nav-item nav-link" id="nav-bank-tab" data-toggle="tab" href="#nav_bank_details" role="tab" aria-controls="nav-profile" aria-selected="false">Bank Details</a>
+        </div>
+       </nav>
+
+       <div class="tab-content my-3" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+         <div class="section">
+          <div class="form-row">
+           <div class="form-group col-md-10">
+            <label class="onboard" for="business_name">Business Name</label>
+            <input required name="business_name" type="text" class="form-control dark" id="business_name" placeholder="XYZ Incoporated">
+           </div>
+          </div>
+          <div class="form-row">
+           <div class="form-group col-md-5">
+            <label class="onboard" for="first_name">Contact First Name</label>
+            <input required name="first_name" type="text" class="form-control dark" id="first_name" placeholder="First Name">
+           </div>
+           <div class="form-group col-md-5">
+            <label class="onboard" for="last_name">Contact Last Name</label>
+            <input required name="last_name" type="text" class="form-control dark" id="last_name" placeholder="Last Name">
+           </div>
+          </div>
+          <div class="form-row">
+           <div class="form-group col-md-10">
+            <label class="onboard" for="phone_number">Email</label>
+            <input required name="email" type="email" class="form-control dark" id="email" placeholder="sample@domain.xyz">
+           </div>
+          </div>
+          <div class="form-row">
+           <div class="form-group col-md-10">
+            <label class="onboard" for="phone_number">Phone Number</label>
+            <input required name="phone_number" type="text" class="form-control dark" id="phone_number" placeholder="">
+           </div>
+          </div>
          </div>
         </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+         <div class="section">
+          <div class="form-row">
+           <div class="form-group col-md-12">
+            <label class="onboard" for="address">Address line 1</label>
+            <input name="address" type="text" class="form-control dark" id="address" placeholder="">
+           </div>
+          </div>
+          <div class="form-row">
+           <div class="form-group col-md-4">
+            <label class="onboard" for="street">Street</label>
+            <input name="street" type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
+           </div>
+           <div class="form-group col-md-4">
+            <label class="onboard" for="city">City</label>
+            <input name="city" type="text" class="form-control dark" id="city" placeholder="Ikeja">
+           </div>
+           <div class="form-group col-md-4">
+            <label class="onboard" for="state">State</label>
+            <input name="state" type="text" class="form-control dark" id="state" placeholder="Lagos">
+           </div>
+          </div>
+          <div class="form-row">
+           <div class="form-group col-md-4">
+            <label class="onboard" for="postal_code">Postal/Zip code</label>
+            <input name="postal_code" type="text" class="form-control dark" id="postal_code" placeholder="">
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="tab-pane fade" id="nav_bank_details" role="tabpanel" aria-labelledby="nav-bank-tab">
+         <div class="section">
+          <div class="form-row">
+           <div class="form-group col-md-6">
+            <label class="onboard" for="account_number">Account Number</label>
+            <input name="account_number" type="text" class="form-control dark" id="account_number" placeholder="">
+           </div>
+           <div class="form-group col-md-6">
+            <label class="onboard" for="account_name">Account Name</label>
+            <input name="account_name" type="text" class="form-control dark" id="account_name" placeholder="">
+           </div>
+          </div>
+         </div>
+        </div>
+
        </div>
-       <!--END - Recent Ticket Comments-->
       </div>
-     </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+       <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+
     </div>
    </div>
   </div>
@@ -691,6 +803,7 @@ END - Sidebar
  <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
  <script src="bower_components/moment/moment.js"></script>
  <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
  <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
  <script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
  <script src="bower_components/ckeditor/ckeditor.js"></script>
@@ -717,5 +830,43 @@ END - Sidebar
  <script src="bower_components/bootstrap/js/dist/popover.js"></script>
  <script src="js/demo_customizer.js?version=4.4.0"></script>
  <script src="js/main.js?version=4.4.0"></script>
+ <script src="js/logic.js?version=4.4.0"></script>
+ <script>
+  $(document).ready(function() {
+   var counter = 0;
+   $("#add_row").on("click", function() {
+    var newRow = $("<div class='form-row'>");
+    var cols = "";
+    cols += ' <div class="form-group col-md-4"><label class="onboard" for="note">Item*</label><input type="text" class="form-control dark pb-0" id="item" placeholder="" name="item' + counter + '"></div>';
+    cols += '<div class="form-group col-md-4"><label class="onboard" for="description">Description</label> <input data-brackets-id="79011" type="text" class="form-control dark pb-0" id="description" placeholder="" name="description' + counter + '"></div>';
+    cols += '<div class="form-group col-md-3"><label class="onboard" for="unit_price">Unit Price</label><input type="text" class="form-control dark pb-0" id="unit_price" placeholder="" name="unit_price' + counter + '"></div>';
+    cols += '<div class="form-group col-md-1 text-center"><img src="img/custom-icons/delete.svg" alt="delete" class="ibtnDel mt-4 pt-1" /></div>';
+    cols += '<div class="form-group col-md-2"><label class="onboard" for="quantity">Quantity</label><input type="text" class="form-control dark pb-0" id="quantity" placeholder="" name="quantity' + counter + '"></div>';
+    cols += '<div class="form-group col-md-3"><label class="onboard" for="tax">Tax</label><input type="text" class="form-control dark pb-0" id="tax" placeholder="" name="tax' + counter + '"></div>';
+    newRow.append(cols);
+    $("div.append-line").append(newRow);
+    counter++;
+   });
+   $("div.append-line").on("click", ".ibtnDel", function(event) {
+    $(this).closest("div.form-row").remove();
+    counter -= 1
+   });
+  });
+
+  function calculateRow(row) {
+   var price = +row.find('input[name^="price"]').val();
+  }
+
+  function calculateGrandTotal() {
+   var grandTotal = 0;
+   $("table.order-list").find('input[name^="price"]').each(function() {
+    grandTotal += +$(this).val();
+   });
+   $("#grandtotal").text(grandTotal.toFixed(2));
+  }
+
+ </script>
+
 </body>
+
 </html>
