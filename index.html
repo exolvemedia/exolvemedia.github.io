@@ -9,6 +9,187 @@
  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
  <link rel="stylesheet" href="css/style.css" />
+ <link rel="stylesheet" href="css/slick.css" />
+ <style>
+  body {
+   overflow-x: hidden;
+  }
+
+  .card-carousel {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   overflow: hidden;
+  }
+
+  .card-carousel .my-card {
+   height: auto;
+   width: 150px;
+   position: relative;
+   z-index: 1;
+   -webkit-transform: scale(0.6) translateY(-2rem);
+   transform: scale(0.6) translateY(-2rem);
+   opacity: 0;
+   cursor: pointer;
+   pointer-events: none;
+   background: #2e5266;
+   background: linear-gradient(to top, #2e5266, #6e8898);
+   transition: 1s;
+  }
+
+  .card-carousel .my-card:after {
+   content: '';
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   border-radius: 100%;
+   background-color: rgba(0, 0, 0, 0.3);
+   bottom: -5rem;
+   -webkit-filter: blur(4px);
+   filter: blur(4px);
+  }
+
+  .card-carousel .my-card:nth-child(0):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(1):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(2):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(3):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(4):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(5):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(6):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(7):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(8):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card:nth-child(9):before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   font-size: 3rem;
+   font-weight: 300;
+   color: #fff;
+  }
+
+  .card-carousel .my-card.active {
+   z-index: 3;
+   -webkit-transform: scale(1) translateY(0) translateX(0);
+   transform: scale(1) translateY(0) translateX(0);
+   opacity: 1;
+   pointer-events: auto;
+   transition: 1s;
+  }
+
+  .card-carousel .my-card.prev,
+  .card-carousel .my-card.next {
+   z-index: 2;
+   -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
+   transform: scale(0.8) translateY(-1rem) translateX(0);
+   opacity: 0.6;
+   pointer-events: auto;
+   transition: 1s;
+  }
+
+ </style>
 </head>
 
 <body class="home">
@@ -68,8 +249,8 @@
    </div>
   </div>
  </div>
-
  <div class="container">
+  <!--
   <div class="row justify-content-center py-2">
    <div class="col">
     <img src="img/custom-icons/leko-engineering-nega-print.png" alt="leko" class="my-1 img-fluid" />
@@ -87,8 +268,19 @@
     <img src="img/custom-icons/Cowrywise.png" alt="cowrywise" class="mt-2 img-fluid" />
    </div>
   </div>
+-->
+  <section class="customer-logos slider">
+   <div class="slide"><img src="img/custom-icons/leko-engineering-nega-print.png" alt="leko" class="my-1 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/Mailchimp-logo.png" alt="Mailchimp" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/logo-cloudup-white.png" alt="cloudup" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/GIGM-Plain_180827_172142.png" alt="gigm" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/Cowrywise.png" alt="cowrywise" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/Mailchimp-logo.png" alt="Mailchimp" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/logo-cloudup-white.png" alt="cloudup" class="mt-2 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/leko-engineering-nega-print.png" alt="leko" class="my-1 img-fluid"></div>
+   <div class="slide"><img src="img/custom-icons/Cowrywise.png" alt="cowrywise" class="mt-2 img-fluid"></div>
+  </section>
  </div>
-
  <div class="section-3">
   <div class="container-fluid py-5">
    <div class="row">
@@ -102,22 +294,22 @@
     <div class="col-md-3 text-center">
      <img src="img/invoice.svg" class="mb-4">
      <h6 class="text-white mt-2">Invoices</h6>
-     <p class="text-white small">Send professional looking invoices directly to your clients in just a click.</p>
+     <p class="text-white font-13">Send professional looking invoices directly to your clients in just a click.</p>
     </div>
     <div class="col-md-3 text-center">
      <img src="img/money.svg" class="" width="50">
      <h6 class="text-white mt-4 s">Expenses</h6>
-     <p class="text-white small">Keep track of all your spendings and every penny debited form your transactions.</p>
+     <p class="text-white font-13">Keep track of all your spendings and every penny debited form your transactions.</p>
     </div>
     <div class="col-md-3 text-center">
      <img src="img/money-transfer.svg" width="50">
      <h6 class="text-white mt-4">Cashflow Management</h6>
-     <p class="text-white small">View and monitor your cashflow. You also get to add other incomes and expenses from other sources.</p>
+     <p class="text-white font-13">View and monitor your cashflow. You also get to add other incomes and expenses from other sources.</p>
     </div>
     <div class="col-md-3 text-center">
      <img src="img/rotate.svg" class="mb-md-3" width="55">
      <h6 class="text-white mt-2">Accounts Reconciliation</h6>
-     <p class="text-white small">Have a firm grip of your business. Reconcile Balance sheet, P&L, Trial Balance
+     <p class="text-white font-13">Have a firm grip of your business. Reconcile Balance sheet, P&L, Trial Balance
      </p>
     </div>
    </div>
@@ -127,7 +319,7 @@
   <div class="row justify-content-center">
    <div class="col-md-10 my-5">
     <h4 class="text-center">Get a real-time view from any device</h4>
-    <p class="text-center small">Log in online anytime, anywhere on your Mac, PC, tablet or phone and see up-to-date financials. It’s small business accounting software that’s simple, smart and occasionally magical.</p>
+    <p class="text-center font-13">Log in online anytime, anywhere on your Mac, PC, tablet or phone and see up-to-date financials. It’s small business accounting software that’s simple, smart and occasionally magical.</p>
    </div>
   </div>
   <div class="row justify-content-center">
@@ -143,7 +335,18 @@
    <div class="row justify-content-center">
     <div class="col-md-10 my-5">
      <h4 class="text-center text-white">Over 200k customers Loves Simple</h4>
-     <p class="text-center small text-white">See how our customers are making the world a smarter place</p>
+     <p class="text-center font-13 text-white">See how our customers are making the world a smarter place</p>
+     <div class="card-carousel sm-none mt-5">
+      <div class="my-card"><img src="img/avatar7.jpg" class="img-fluid"></div>
+      <div class="my-card"><img src="img/custom-icons/Group%207.png" class="img-fluid"></div>
+      <div class="my-card"><img src="img/avatar4.jpg" class="img-fluid"></div>
+      <div class="my-card"><img src="img/custom-icons/Group%207.png" class="img-fluid"></div>
+      <div class="my-card"><img src="img/avatar1.jpg" class="img-fluid"></div>
+      <div class="my-card"><img src="img/custom-icons/Group%208.png" class="img-fluid"></div>
+      <div class="my-card"><img src="img/avatar2.jpg" class="img-fluid"></div>
+      <div class="my-card"><img src="img/avatar6.jpg" class="img-fluid"></div>
+      <div class="my-card"><img src="img/avatar3.jpg" class="img-fluid"></div>
+     </div>
     </div>
    </div>
   </div>
@@ -215,7 +418,6 @@
     <div class="col-md-9 order-md-first mb-3">
      <p class="line"><span>Copyright © 2019 Simple.com.ng All rights reserved</span></p>
     </div>
-
    </div>
   </div>
  </div>
@@ -223,5 +425,79 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="js/responsiveslides.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script>
+ $(document).ready(function() {
+  $('.customer-logos').slick({
+   slidesToShow: 6,
+   slidesToScroll: 1,
+   autoplay: true,
+   autoplaySpeed: 1500,
+   arrows: false,
+   dots: false,
+   pauseOnHover: false,
+   responsive: [{
+    breakpoint: 768,
+    settings: {
+     slidesToShow: 4
+    }
+   }, {
+    breakpoint: 520,
+    settings: {
+     slidesToShow: 3
+    }
+   }]
+  });
+ });
+
+</script>
+<script>
+ $num = $('.my-card').length;
+ $even = $num / 2;
+ $odd = ($num + 1) / 2;
+
+ if ($num % 2 == 0) {
+  $('.my-card:nth-child(' + $even + ')').addClass('active');
+  $('.my-card:nth-child(' + $even + ')').prev().addClass('prev');
+  $('.my-card:nth-child(' + $even + ')').next().addClass('next');
+ } else {
+  $('.my-card:nth-child(' + $odd + ')').addClass('active');
+  $('.my-card:nth-child(' + $odd + ')').prev().addClass('prev');
+  $('.my-card:nth-child(' + $odd + ')').next().addClass('next');
+ }
+
+ $('.my-card').mouseover(function() {
+  $slide = $('.active').width();
+  console.log($('.active').position().left);
+
+  if ($(this).hasClass('next')) {
+   $('.card-carousel').stop(false, true).animate({
+    left: '-=' + $slide
+   });
+  } else if ($(this).hasClass('prev')) {
+   $('.card-carousel').stop(false, true).animate({
+    left: '+=' + $slide
+   });
+  }
+
+  $(this).removeClass('prev next');
+  $(this).siblings().removeClass('prev active next');
+
+  $(this).addClass('active');
+  $(this).prev().addClass('prev');
+  $(this).next().addClass('next');
+ });
+
+
+ // Keyboard nav
+ $('html body').keydown(function(e) {
+  if (e.keyCode == 37) { // left
+   $('.active').prev().trigger('click');
+  } else if (e.keyCode == 39) { // right
+   $('.active').next().trigger('click');
+  }
+ });
+
+</script>
 
 </html>

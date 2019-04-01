@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="">
-
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +7,12 @@
  <link href="img/favicon.png" rel="shortcut icon">
  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+ <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+ <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
  <link rel="stylesheet" href="css/style.css" />
  <link rel="stylesheet" href="css/countrySelect.min.css" />
  <link rel="stylesheet" href="css/intlTelInput.min.css" />
 </head>
-
 <body>
  <div class="screen">
   <!-- Modal -->
@@ -25,7 +25,7 @@
       <div class="container">
        <div class="row">
         <div class="col-md-12">
-         <p class="text-center text-white mb-0">Welcome , kindly fill the forms below to complete activation.</p>
+         <p class="text-center text-white mb-0 font-14">Welcome , kindly fill the forms below to complete activation.</p>
         </div>
        </div>
       </div>
@@ -67,7 +67,6 @@
           <input type="text" class="form-control dark" id="phoneNumber" placeholder="">
           <span id="error_mobile" class="small text-danger"></span>
          </div>
-        
          <div class="d-flex">
           <div>
            <a href="welcome-dashboard.html" class=" text-dark"><small>Skip To Dashboard</small></a>
@@ -78,7 +77,7 @@
          </div>
         </div>
         <div class="section none" id="business">
-          <div class="form-group">
+         <div class="form-group">
           <label class="onboard" for="companyName">Company Name</label>
           <input type="text" class="form-control dark" id="companyName" placeholder="">
           <span id="error_company_name" class="small text-danger"></span>
@@ -86,31 +85,28 @@
          <div class="form-group">
           <label class="onboard" for="category">Category</label>
           <select class="form-control onboard dark" id="category">
-            <option selected disabled>Select default payment</option>
-            <option>2</option>
-            <option>3</option>
-           </select>
+           <option selected disabled>Select category</option>
+           <option>a</option>
+           <option>b</option>
+          </select>
           <span id="error_category" class="small text-danger"></span>
          </div>
          <div class="form-row">
-           <div class="form-group col-md-4">
+          <div class="form-group col-md-4">
            <label class="onboard" for="street">Street</label>
            <input type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
            <span id="error_street" class="small text-danger"></span>
           </div>
-          
           <div class="form-group col-md-4">
            <label class="onboard" for="city">City</label>
            <input type="text" class="form-control dark" id="city" placeholder="city">
            <span id="error_city" class="small text-danger"></span>
           </div>
-          
           <div class="form-group col-md-4">
            <label class="onboard" for="state">State</label>
            <input type="text" class="form-control dark" id="state" placeholder="state">
            <span id="error_state" class="small text-danger"></span>
           </div>
-         
          </div>
          <div class="form-group">
           <label class="onboard" for="description">Business Description</label>
@@ -127,6 +123,12 @@
          </div>
         </div>
         <div class="section none" id="invoice">
+         <div class="form-row">
+          <div class="form-group col-md-6">
+           <label class="onboard" for="logo">Upload Company Logo</label>
+           <input type="file" id="logo" class="filepond mt-2" name="filepond my-3" data-max-file-size="3MB" data-max-files="3">
+          </div>
+         </div>
          <div class="form-row">
           <div class="form-group col-md-4">
            <label class="onboard" for="">Currency</label>
@@ -222,7 +224,6 @@
   backdrop: 'static',
   keyboard: false
  });
-
 </script>
 <script>
  var input = document.querySelector("#phoneNumber");
@@ -236,7 +237,6 @@
   },
   utilsScript: "js/utils.js" // just for formatting/placeholders etc
  });
-
 </script>
 <script>
  function validatePersonal() {
@@ -289,7 +289,6 @@
     $('#phoneNumber').removeClass('has-error');
    }
   }
-  
   return error + error_mobile;
  }
  $(document).ready(function() {
@@ -306,7 +305,6 @@
    console.log('Simple Button');
   });
  });
-
  function validateBusiness() {
   var error_company_name = '';
   var error_category = '';
@@ -315,7 +313,6 @@
   var error_street = '';
   var error_description = '';
   var error = '';
-  
   if ($.trim($('#companyName').val()).length == 0) {
    error = error_company_name = 'Company name is required';
    $('#error_company_name').text(error_company_name);
@@ -394,7 +391,6 @@
    $('#personal_info').removeClass('btn-grey rounded-0');
   });
  });
-
  function validateInvoice() {
   var error_taxRate = '';
   var error_accountName = '';
@@ -433,7 +429,8 @@
   $('#btn_invoice').click(function() {
    var result = validateInvoice();
    if (result == '') {
-    console.log('All fixed')
+    console.log('All fixed');
+    location = 'welcome-dashboard.html';
    }
    console.log('Business Button');
   });
@@ -446,50 +443,26 @@
    $('#business_info').removeClass('btn-grey rounded-0');
   });
  });
- //			Submit Form for a parent with a child
- $('#finish_child').click(function() {
-  //    $("#diaryform").submit();
-  var form = $('#diaryform');
-  var child_result = validateChild();
-  if ($('.selected[data-gender]')) {
-   child_gender = $('.selected').data('gender');
-  }
-  console.log(child_result);
-  if (child_result == '') {
-   //					If starts
-   $('#diaryform input').each(function(index) {
-    console.log($(this).attr('name') + " = " + $(this).val());
-   });
-   var formData = {
-    'first_name': $('input[name=first_name]').val(),
-    'last_name': $('input[name=last_name]').val(),
-    'email': $('input[name=email]').val(),
-    'parent_gender': $('select[name=parent_gender]').val(),
-    'password': $('input[name=password]').val(),
-    'status': $('#child').data('status'),
-    'baby_gender': child_gender,
-    'child_name': $('input[name=child_name]').val(),
-    'Delievery_info': null,
-    'Delievery_date': null,
-   };
-   $.ajax({
-     type: "POST",
-     url: 'test.php',
-     data: formData, // our data object
-     dataType: 'json', // what type of data do we expect back from the server
-     encode: true
-    })
-    // using the done promise callback
-    .done(function(data) {
-     // log data to the console so we can see
-     console.log(data);
-     console.log(data.data);
-     // here we will handle errors and validation messages
-    });
-   //if ends
-  }
- });
-
 </script>
-
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+ //			window.pond = null;
+ //
+ FilePond.registerPlugin(
+  FilePondPluginFileValidateSize,
+  FilePondPluginImageExifOrientation,
+  FilePondPluginImagePreview
+ );
+ //
+ //   // override default options
+ FilePond.setOptions({
+  dropOnPage: true,
+  dropOnElement: true
+ });
+ //
+ FilePond.parse(document.body);
+</script>
 </html>
