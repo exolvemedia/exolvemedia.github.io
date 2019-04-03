@@ -1,191 +1,208 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Simple Accounting Platform.</title>
- <link href="img/favicon.png" rel="shortcut icon">
- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
- <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
- <link rel="stylesheet" href="css/style.css" />
- <link rel="stylesheet" href="css/countrySelect.min.css" />
- <link rel="stylesheet" href="css/intlTelInput.min.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Accounting Platform.</title>
+	<link href="img/favicon.png" rel="shortcut icon">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+	<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/countrySelect.min.css" />
+	<link rel="stylesheet" href="css/intlTelInput.min.css" />
 </head>
+
 <body>
- <div class="screen">
-  <!-- Modal -->
-  <div class="modal fade" id="onboardModal" tabindex="-1" role="dialog" aria-labelledby="onboardModalTitle" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background: transparent !important; border: 0px solid #000000 !important">
-     <div class="p-1" style="background: #157FCC;
+	<div class="screen">
+		<!-- Modal -->
+		<div class="modal fade" id="onboardModal" tabindex="-1" role="dialog" aria-labelledby="onboardModalTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content" style="background: transparent !important; border: 0px solid #000000 !important">
+					<div class="p-1" style="background: #157FCC;
 												box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.15);
 												border-radius: 3.36103px;">
-      <div class="container">
-       <div class="row">
-        <div class="col-md-12">
-         <p class="text-center text-white mb-0 font-14">Welcome , kindly fill the forms below to complete activation.</p>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="my-4" style="background-color: #ffffff">
-      <div class="my-2 container">
-       <div class="row justify-content-center mt-3 mb-4">
-        <div class="col-md-4 p-0">
-         <button id="personal_info" class="btn btn-block font-9 btn-blue tab-active">Personal Information</button>
-        </div>
-        <div class="col-md-4 p-0">
-         <button id="business_info" class="btn btn-block btn-sm btn-grey rounded-0 mt-btn">Business Profile</button>
-        </div>
-        <div class="col-md-4 p-0">
-         <button id="invoice_info" class="btn btn-block btn-sm btn-grey rounded-0 mt-btn">Invoice Preferences</button>
-        </div>
-       </div>
-       <form id="register">
-        <div class="section" id="personal">
-         <div class="form-row">
-          <div class="form-group col-md-6">
-           <label class="onboard" for="surname">Surname</label>
-           <input type="text" class="form-control dark" id="surname" placeholder="">
-           <span id="error_surname" class="small text-danger"></span>
-          </div>
-          <div class="form-group col-md-6">
-           <label class="onboard" for="lastName">Last name</label>
-           <input type="text" class="form-control dark" id="lastName">
-           <span id="error_last_name" class="small text-danger"></span>
-          </div>
-         </div>
-         <div class="form-group">
-          <label class="onboard" for="Country">Country</label>
-          <input type="text" class="form-control dark" id="country" placeholder="">
-          <span id="error_country" class="text-danger small"></span>
-         </div>
-         <div class="form-group">
-          <label class="onboard" for="PhoneNumber">Phone Number</label>
-          <input type="text" class="form-control dark" id="phoneNumber" placeholder="">
-          <span id="error_mobile" class="small text-danger"></span>
-         </div>
-         <div class="d-flex">
-          <div>
-           <a href="welcome-dashboard.html" class=" text-dark"><small>Skip To Dashboard</small></a>
-          </div>
-          <div class="ml-auto">
-           <button id="btn_personal" type="button" class="btn btn-primary btn-sm px-5">Next</button>
-          </div>
-         </div>
-        </div>
-        <div class="section none" id="business">
-         <div class="form-group">
-          <label class="onboard" for="companyName">Company Name</label>
-          <input type="text" class="form-control dark" id="companyName" placeholder="">
-          <span id="error_company_name" class="small text-danger"></span>
-         </div>
-         <div class="form-group">
-          <label class="onboard" for="category">Category</label>
-          <select class="form-control onboard dark" id="category">
-           <option selected disabled>Select category</option>
-           <option>a</option>
-           <option>b</option>
-          </select>
-          <span id="error_category" class="small text-danger"></span>
-         </div>
-         <div class="form-row">
-          <div class="form-group col-md-4">
-           <label class="onboard" for="street">Street</label>
-           <input type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
-           <span id="error_street" class="small text-danger"></span>
-          </div>
-          <div class="form-group col-md-4">
-           <label class="onboard" for="city">City</label>
-           <input type="text" class="form-control dark" id="city" placeholder="city">
-           <span id="error_city" class="small text-danger"></span>
-          </div>
-          <div class="form-group col-md-4">
-           <label class="onboard" for="state">State</label>
-           <input type="text" class="form-control dark" id="state" placeholder="state">
-           <span id="error_state" class="small text-danger"></span>
-          </div>
-         </div>
-         <div class="form-group">
-          <label class="onboard" for="description">Business Description</label>
-          <textarea type="text" class="form-control dark" id="description" placeholder=""></textarea>
-          <span id="error_description" class="small text-danger"></span>
-         </div>
-         <div class="d-flex">
-          <div>
-           <button id="btn_back_business" type="button" class="btn btn-green btn-sm px-5">Back</button>
-          </div>
-          <div class="ml-auto">
-           <button id="btn_business" type="button" class="btn btn-primary btn-sm px-5">Next</button>
-          </div>
-         </div>
-        </div>
-        <div class="section none" id="invoice">
-         <div class="form-row">
-          <div class="form-group col-md-6">
-           <label class="onboard" for="logo">Upload Company Logo</label>
-           <input type="file" id="logo" class="filepond mt-2" name="filepond my-3" data-max-file-size="3MB" data-max-files="3">
-          </div>
-         </div>
-         <div class="form-row">
-          <div class="form-group col-md-4">
-           <label class="onboard" for="">Currency</label>
-           <select class="form-control onboard" id="currency">
-            <option selected>NGR</option>
-            <option>2</option>
-            <option>3</option>
-           </select>
-          </div>
-          <div class="form-group col-md-4">
-           <label class="onboard" for="">default payment term</label>
-           <select class="form-control onboard" id="">
-            <option selected disabled>Select default payment</option>
-            <option>2</option>
-            <option>3</option>
-           </select>
-          </div>
-          <div class="form-group col-md-4">
-           <label class="onboard" for="">default tax rate</label>
-           <input type="text" class="form-control dark" id="taxRate" placeholder="0%">
-           <span id="error_taxRate" class="small text-danger"></span>
-          </div>
-         </div>
-         <div class="form-row">
-          <div class="form-group col-md-6">
-           <label class="onboard" for="">Invoice account Name</label>
-           <input type="text" class="form-control dark" id="accountName" placeholder="Account Name">
-           <span id="error_accountName" class="small text-danger"></span>
-          </div>
-          <div class="form-group col-md-6">
-           <label class="onboard" for="">Invoice account Number</label>
-           <input type="text" class="form-control dark" id="accountNumber" placeholder="Account Number">
-           <span id="error_accountNumber" class="small text-danger"></span>
-          </div>
-         </div>
-         <div class="form-group">
-          <label class="onboard" for="Phone Number">Payment Mode</label>
-          <select class="form-control onboard" id="">
-           <option>Allow Online payment</option>
-          </select>
-         </div>
-         <div class="d-flex">
-          <div>
-           <button id="btn_back_invoice" type="button" class="btn btn-green btn-sm px-5">Back</button>
-          </div>
-          <div class="ml-auto">
-           <button id="btn_invoice" type="button" class="btn btn-primary btn-sm px-5">Submit</button>
-          </div>
-         </div>
-        </div>
-       </form>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<p class="text-center text-white mb-0 font-14">Welcome , kindly fill the forms below to complete activation.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="my-4" style="background-color: #ffffff">
+						<div class="my-2 container">
+							<div class="row justify-content-center mt-3 mb-4">
+								<div class="col-md-4 p-0">
+									<button id="personal_info" class="btn btn-block font-9 btn-blue tab-active">Personal Information</button>
+								</div>
+								<div class="col-md-4 p-0">
+									<button id="business_info" class="btn btn-block btn-sm btn-grey rounded-0 mt-btn">Business Profile</button>
+								</div>
+								<div class="col-md-4 p-0">
+									<button id="invoice_info" class="btn btn-block btn-sm btn-grey rounded-0 mt-btn">Invoice Preferences</button>
+								</div>
+							</div>
+							<form id="register">
+								<div class="section" id="personal">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label class="onboard" for="surname">Surname</label>
+											<input type="text" class="form-control dark" id="surname" placeholder="">
+											<span id="error_surname" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-6">
+											<label class="onboard" for="lastName">Last name</label>
+											<input type="text" class="form-control dark" id="lastName">
+											<span id="error_last_name" class="small text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="onboard" for="Country">Country</label>
+										<input type="text" class="form-control dark" id="country" placeholder="">
+										<span id="error_country" class="text-danger small"></span>
+									</div>
+									<div class="form-group">
+										<label class="onboard" for="PhoneNumber">Phone Number</label>
+										<input type="text" class="form-control dark" id="phoneNumber" placeholder="">
+										<span id="error_mobile" class="small text-danger"></span>
+									</div>
+									<div class="d-flex">
+										<div>
+											<a href="welcome-dashboard.html" class=" text-dark"><small>Skip To Dashboard</small></a>
+										</div>
+										<div class="ml-auto">
+											<button id="btn_personal" type="button" class="btn btn-primary btn-sm px-5">Next</button>
+										</div>
+									</div>
+								</div>
+								<div class="section none" id="business">
+									<div class="form-group">
+										<label class="onboard" for="companyName">Company Name</label>
+										<input type="text" class="form-control dark" id="companyName" placeholder="">
+										<span id="error_company_name" class="small text-danger"></span>
+									</div>
+									<div class="form-group">
+										<label class="onboard" for="category">Category</label>
+										<select class="form-control onboard dark" id="category">
+											<option selected disabled>Select category</option>
+											<option>a</option>
+											<option>b</option>
+										</select>
+										<span id="error_category" class="small text-danger"></span>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label class="onboard" for="street">Street</label>
+											<input type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
+											<span id="error_street" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="onboard" for="city">City</label>
+											<input type="text" class="form-control dark" id="city" placeholder="city">
+											<span id="error_city" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="onboard" for="state">State</label>
+											<input type="text" class="form-control dark" id="state" placeholder="state">
+											<span id="error_state" class="small text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="onboard" for="description">Business Description</label>
+										<textarea type="text" class="form-control dark" id="description" placeholder=""></textarea>
+										<span id="error_description" class="small text-danger"></span>
+									</div>
+									<div class="d-flex">
+										<div>
+											<button id="btn_back_business" type="button" class="btn btn-green btn-sm px-5">Back</button>
+										</div>
+										<div class="ml-auto">
+											<button id="btn_business" type="button" class="btn btn-primary btn-sm px-5">Next</button>
+										</div>
+									</div>
+								</div>
+								<div class="section none" id="invoice">
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label class="onboard" for="logo">Upload Company Logo</label>
+											<input type="file" id="logo" class="filepond mt-2" name="filepond my-3" data-max-file-size="10MB" data-max-files="3">
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label class="onboard" for="currency">Currency</label>
+											<select class="form-control onboard" id="currency">
+												<option selected disabled>Select currency</option>
+												<option>NGR</option>
+												<option>3</option>
+											</select>
+											<span id="error_currency" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="onboard" for="payment_term">default payment term</label>
+											<select class="form-control onboard" id="payment_term">
+												<option selected disabled>Select default payment</option>
+												<option>30 Days</option>
+												<option>90 Days</option>
+											</select>
+											<span id="error_payment_term" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label class="onboard" for="">default tax rate</label>
+											<input type="text" class="form-control dark" id="taxRate" placeholder="0%">
+											<span id="error_taxRate" class="small text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label class="onboard" for="">Company account Name</label>
+											<input type="text" class="form-control dark" id="accountName" placeholder="Account Name">
+											<span id="error_accountName" class="small text-danger"></span>
+										</div>
+										<div class="form-group col-md-6">
+											<label class="onboard" for="">Company account Number</label>
+											<input type="text" class="form-control dark" id="accountNumber" placeholder="Account Number">
+											<span id="error_accountNumber" class="small text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label class="onboard" for="bank_name">Bank Name</label>
+											<select class="form-control onboard" id="bank_name">
+												<option disabled selected>Choose Bank</option>
+												<option>XYZ Bank</option>
+											</select>
+											<span id="error_bank_name" class="small text-danger"></span>
+										</div>
+										<div class="form-group  col-md-6">
+											<br />
+											<div class="form-check mt-md-3 text-right">
+												<input class="form-check-input" type="checkbox" value="" id="online_payment">
+												<label class="form-check-label" for="online_payment">
+													Allow online payment
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="d-flex">
+										<div>
+											<button id="btn_back_invoice" type="button" class="btn btn-green btn-sm px-5">Back</button>
+										</div>
+										<div class="ml-auto">
+											<button id="btn_invoice" type="button" class="btn btn-primary btn-sm px-5">Submit</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
@@ -220,249 +237,298 @@
 <script src="js/main.js"></script>
 <script src="js/logic.js"></script>
 <script>
- $('#onboardModal').modal({
-  backdrop: 'static',
-  keyboard: false
- });
+	$('#onboardModal').modal({
+		backdrop: 'static',
+		keyboard: false
+	});
+
 </script>
 <script>
- var input = document.querySelector("#phoneNumber");
- window.intlTelInput(input, {
-  initialCountry: "auto",
-  geoIpLookup: function(callback) {
-   $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
-    var countryCode = (resp && resp.country) ? resp.country : "";
-    callback(countryCode);
-   });
-  },
-  utilsScript: "js/utils.js" // just for formatting/placeholders etc
- });
+	var input = document.querySelector("#phoneNumber");
+	window.intlTelInput(input, {
+		initialCountry: "auto",
+		geoIpLookup: function(callback) {
+			$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+				var countryCode = (resp && resp.country) ? resp.country : "";
+				callback(countryCode);
+			});
+		},
+		utilsScript: "js/utils.js" // just for formatting/placeholders etc
+	});
+
 </script>
 <script>
- function validatePersonal() {
-  var error_surname = '';
-  var error_last_name = '';
-  var error_country = '';
-  var error_mobile = '';
-  var error = '';
-  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  var phoneno = /^\d{11}$/;
-  if ($.trim($('#surname').val()).length == 0) {
-   error = error_surname = 'Please input your surname';
-   $('#error_surname').text(error_surname);
-   $('#surname').addClass('has-error');
-  } else {
-   error = error_surname = '';
-   $('#error_surname').text(error_surname);
-   $('#surname').removeClass('has-error');
-  }
-  if ($.trim($('#lastName').val()).length == 0) {
-   error = error_last_name = 'Please input your last name';
-   $('#error_last_name').text(error_last_name);
-   $('#lastName').addClass('has-error');
-  } else {
-   error = error_last_name = '';
-   $('#error_last_name').text(error_last_name);
-   $('#lastName').removeClass('has-error');
-  }
-  if ($.trim($('#country').val()).length == 0) {
-   error = error_country = 'Country is required';
-   $('#error_country').text(error_country);
-   $('#country').addClass('has-error');
-  } else {
-   error = error_country = '';
-   $('#error_country').text(error_country);
-   $('#country').removeClass('has-error');
-  }
-  if ($.trim($('#phoneNumber').val()).length == 0) {
-   error = error_mobile = 'Mobile number is required';
-   $('#error_mobile').text(error_mobile);
-   $('#phoneNumber').addClass('has-error');
-  } else {
-   if (!phoneno.test($('#phoneNumber').val())) {
-    error = error_mobile = 'Invalid Number';
-    $('#error_mobile').text(error_mobile);
-    $('#phoneNumber').addClass('has-error');
-   } else {
-    error = error_mobile = '';
-    $('#error_mobile').text(error_mobile);
-    $('#phoneNumber').removeClass('has-error');
-   }
-  }
-  return error + error_mobile;
- }
- $(document).ready(function() {
-  $('#btn_personal').click(function() {
-   var result = validatePersonal();
-   if (result == '') {
-    $('#personal').hide();
-    $('#personal_info').removeClass('btn-blue tab-active');
-    $('#personal_info').addClass('btn-grey btn-sm');
-    $('#business').show();
-    $('#business_info').addClass('btn-blue tab-active font-9');
-    $('#business_info').removeClass('btn-grey rounded-0');
-   }
-   console.log('Simple Button');
-  });
- });
- function validateBusiness() {
-  var error_company_name = '';
-  var error_category = '';
-  var error_state = '';
-  var error_city = '';
-  var error_street = '';
-  var error_description = '';
-  var error = '';
-  if ($.trim($('#companyName').val()).length == 0) {
-   error = error_company_name = 'Company name is required';
-   $('#error_company_name').text(error_company_name);
-   $('#companyName').addClass('has-error');
-  } else {
-   error = error_company_name = '';
-   $('#error_company_name').text(error_company_name);
-   $('#companyName').removeClass('has-error');
-  }
-  if ($.trim($('#category').val()).length == 0) {
-   error = error_category = 'Please input business category';
-   $('#error_category').text(error_category);
-   $('#category').addClass('has-error');
-  } else {
-   error = error_category = '';
-   $('#error_category').text(error_category);
-   $('#category').removeClass('has-error');
-  }
-  if ($.trim($('#state').val()).length == 0) {
-   error = error_state = 'Please input state';
-   $('#error_state').text(error_state);
-   $('#state').addClass('has-error');
-  } else {
-   error = error_state = '';
-   $('#error_state').text(error_state);
-   $('#state').removeClass('has-error');
-  }
-  if ($.trim($('#city').val()).length == 0) {
-   error = error_city = 'Please input city';
-   $('#error_city').text(error_city);
-   $('#city').addClass('has-error');
-  } else {
-   error = error_city = '';
-   $('#error_city').text(error_city);
-   $('#city').removeClass('has-error');
-  }
-  if ($.trim($('#street').val()).length == 0) {
-   error = error_street = 'Street is required';
-   $('#error_street').text(error_street);
-   $('#street').addClass('has-error');
-  } else {
-   error = error_country = '';
-   $('#error_street').text(error_street);
-   $('#street').removeClass('has-error');
-  }
-  if ($.trim($('#description').val()).length == 0) {
-   error = error_description = 'Business Description is required';
-   $('#error_description').text(error_description);
-   $('#description').addClass('has-error');
-  } else {
-   error = error_company_name = '';
-   $('#error_description').text(error_description);
-   $('#description').removeClass('has-error');
-  }
-  return error + error_category;
- }
- $(document).ready(function() {
-  $('#btn_business').click(function() {
-   var result = validateBusiness();
-   if (result == '') {
-    $('#business').hide();
-    $('#business_info').removeClass('btn-blue tab-active');
-    $('#business_info').addClass('btn-grey btn-sm');
-    $('#invoice').show();
-    $('#invoice_info').addClass('btn-blue tab-active font-9');
-    $('#invoice_info').removeClass('btn-grey rounded-0');
-   }
-   console.log('Business Button');
-  });
-  $('#btn_back_business').click(function() {
-   $('#business').hide();
-   $('#business_info').removeClass('btn-blue tab-active');
-   $('#business_info').addClass('btn-grey btn-sm');
-   $('#personal').show();
-   $('#personal_info').addClass('btn-blue tab-active font-9');
-   $('#personal_info').removeClass('btn-grey rounded-0');
-  });
- });
- function validateInvoice() {
-  var error_taxRate = '';
-  var error_accountName = '';
-  var error_accountNumber = '';
-  var error = '';
-  if ($.trim($('#taxRate').val()).length == 0) {
-   error = error_taxRate = 'Please input taxrate';
-   $('#error_taxRate').text(error_taxRate);
-   $('#taxRate').addClass('has-error');
-  } else {
-   error = error_category = '';
-   $('#error_taxRate').text(error_taxRate);
-   $('#taxRate').removeClass('has-error');
-  }
-  if ($.trim($('#accountName').val()).length == 0) {
-   error = error_accountName = 'Please input Account Name';
-   $('#error_accountName').text(error_accountName);
-   $('#accountName').addClass('has-error');
-  } else {
-   error = error_accountName = '';
-   $('#error_accountName').text(error_accountName);
-   $('#accountName').removeClass('has-error');
-  }
-  if ($.trim($('#accountNumber').val()).length == 0) {
-   error = error_accountNumber = 'Please input accountNumber';
-   $('#error_accountNumber').text(error_accountNumber);
-   $('#accountNumber').addClass('has-error');
-  } else {
-   error = error_city = '';
-   $('#error_accountNumber').text(error_accountNumber);
-   $('#accountNumber').removeClass('has-error');
-  }
-  return error;
- }
- $(document).ready(function() {
-  $('#btn_invoice').click(function() {
-   var result = validateInvoice();
-   if (result == '') {
-    console.log('All fixed');
-    location = 'welcome-dashboard.html';
-   }
-   console.log('Business Button');
-  });
-  $('#btn_back_invoice').click(function() {
-   $('#invoice').hide();
-   $('#invoice_info').removeClass('btn-blue tab-active');
-   $('#invoice_info').addClass('btn-grey btn-sm');
-   $('#business').show();
-   $('#business_info').addClass('btn-blue tab-active font-9');
-   $('#business_info').removeClass('btn-grey rounded-0');
-  });
- });
+	function validatePersonal() {
+		var error_surname = '';
+		var error_last_name = '';
+		var error_country = '';
+		var error_mobile = '';
+		var error = '';
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var phoneno = /^\d{11}$/;
+		if ($.trim($('#surname').val()).length == 0) {
+			error = error_surname = 'Please input your surname';
+			$('#error_surname').text(error_surname);
+			$('#surname').addClass('has-error');
+		} else {
+			error = error_surname = '';
+			$('#error_surname').text(error_surname);
+			$('#surname').removeClass('has-error');
+		}
+		if ($.trim($('#lastName').val()).length == 0) {
+			error = error_last_name = 'Please input your last name';
+			$('#error_last_name').text(error_last_name);
+			$('#lastName').addClass('has-error');
+		} else {
+			error = error_last_name = '';
+			$('#error_last_name').text(error_last_name);
+			$('#lastName').removeClass('has-error');
+		}
+		if ($.trim($('#country').val()).length == 0) {
+			error = error_country = 'Country is required';
+			$('#error_country').text(error_country);
+			$('#country').addClass('has-error');
+		} else {
+			error = error_country = '';
+			$('#error_country').text(error_country);
+			$('#country').removeClass('has-error');
+		}
+		if ($.trim($('#phoneNumber').val()).length == 0) {
+			error = error_mobile = 'Mobile number is required';
+			$('#error_mobile').text(error_mobile);
+			$('#phoneNumber').addClass('has-error');
+		} else {
+			if (!phoneno.test($('#phoneNumber').val())) {
+				error = error_mobile = 'Invalid Number';
+				$('#error_mobile').text(error_mobile);
+				$('#phoneNumber').addClass('has-error');
+			} else {
+				error = error_mobile = '';
+				$('#error_mobile').text(error_mobile);
+				$('#phoneNumber').removeClass('has-error');
+			}
+		}
+		return error + error_mobile;
+	}
+	$(document).ready(function() {
+		$('#btn_personal').click(function() {
+			var result = validatePersonal();
+			if (result == '') {
+				$('#personal').hide();
+				$('#personal_info').removeClass('btn-blue tab-active');
+				$('#personal_info').addClass('btn-grey btn-sm');
+				$('#business').show();
+				$('#business_info').addClass('btn-blue tab-active font-9');
+				$('#business_info').removeClass('btn-grey rounded-0');
+			}
+			console.log('Simple Button');
+		});
+	});
+
+	function validateBusiness() {
+		var error_company_name = '';
+		var error_category = '';
+		var error_state = '';
+		var error_city = '';
+		var error_street = '';
+		var error_description = '';
+		var error = '';
+		if ($.trim($('#companyName').val()).length == 0) {
+			error = error_company_name = 'Company name is required';
+			$('#error_company_name').text(error_company_name);
+			$('#companyName').addClass('has-error');
+		} else {
+			error = error_company_name = '';
+			$('#error_company_name').text(error_company_name);
+			$('#companyName').removeClass('has-error');
+		}
+		if ($.trim($('#category').val()).length == 0) {
+			error = error_category = 'Please input business category';
+			$('#error_category').text(error_category);
+			$('#category').addClass('has-error');
+		} else {
+			error = error_category = '';
+			$('#error_category').text(error_category);
+			$('#category').removeClass('has-error');
+		}
+		if ($.trim($('#state').val()).length == 0) {
+			error = error_state = 'Please input state';
+			$('#error_state').text(error_state);
+			$('#state').addClass('has-error');
+		} else {
+			error = error_state = '';
+			$('#error_state').text(error_state);
+			$('#state').removeClass('has-error');
+		}
+		if ($.trim($('#city').val()).length == 0) {
+			error = error_city = 'Please input city';
+			$('#error_city').text(error_city);
+			$('#city').addClass('has-error');
+		} else {
+			error = error_city = '';
+			$('#error_city').text(error_city);
+			$('#city').removeClass('has-error');
+		}
+		if ($.trim($('#street').val()).length == 0) {
+			error = error_street = 'Street is required';
+			$('#error_street').text(error_street);
+			$('#street').addClass('has-error');
+		} else {
+			error = error_country = '';
+			$('#error_street').text(error_street);
+			$('#street').removeClass('has-error');
+		}
+		if ($.trim($('#description').val()).length == 0) {
+			error = error_description = 'Business Description is required';
+			$('#error_description').text(error_description);
+			$('#description').addClass('has-error');
+		} else {
+			error = error_company_name = '';
+			$('#error_description').text(error_description);
+			$('#description').removeClass('has-error');
+		}
+		return error + error_category;
+	}
+	$(document).ready(function() {
+		$('#btn_business').click(function() {
+			var result = validateBusiness();
+			if (result == '') {
+				$('#business').hide();
+				$('#business_info').removeClass('btn-blue tab-active');
+				$('#business_info').addClass('btn-grey btn-sm');
+				$('#invoice').show();
+				$('#invoice_info').addClass('btn-blue tab-active font-9');
+				$('#invoice_info').removeClass('btn-grey rounded-0');
+			}
+			console.log('Business Button');
+		});
+		$('#btn_back_business').click(function() {
+			$('#business').hide();
+			$('#business_info').removeClass('btn-blue tab-active');
+			$('#business_info').addClass('btn-grey btn-sm');
+			$('#personal').show();
+			$('#personal_info').addClass('btn-blue tab-active font-9');
+			$('#personal_info').removeClass('btn-grey rounded-0');
+		});
+	});
+
+	function validateInvoice() {
+		var error_currency = '';
+		var error_payment_term = '';
+		var error_taxRate = '';
+		var error_accountName = '';
+		var error_accountNumber = '';
+		var number = /^\d*$/;
+		var error_bank_name = '';
+		var error = '';
+
+		if ($.trim($('#currency').val()).length == 0) {
+			error = error_currency = 'Select currency';
+			$('#error_currency').text(error_currency);
+			$('#currency').addClass('has-error');
+		} else {
+			error = error_currency = '';
+			$('#error_currency').text(error_currency);
+			$('#currency').removeClass('has-error');
+		}
+		if ($.trim($('#payment_term').val()).length == 0) {
+			error = error_payment_term = 'Select payment term';
+			$('#error_payment_term').text(error_payment_term);
+			$('#payment_term').addClass('has-error');
+		} else {
+			error = error_payment_term = '';
+			$('#error_payment_term').text(error_payment_term);
+			$('#payment_term').removeClass('has-error');
+		}
+		if ($.trim($('#taxRate').val()).length == 0) {
+			error = error_taxRate = 'Please input taxrate';
+			$('#error_taxRate').text(error_taxRate);
+			$('#taxRate').addClass('has-error');
+		} else {
+			error = error_taxRate = '';
+			$('#error_taxRate').text(error_taxRate);
+			$('#taxRate').removeClass('has-error');
+		}
+		if ($.trim($('#accountName').val()).length == 0) {
+			error = error_accountName = 'Please input Account Name';
+			$('#error_accountName').text(error_accountName);
+			$('#accountName').addClass('has-error');
+		} else {
+			error = error_accountName = '';
+			$('#error_accountName').text(error_accountName);
+			$('#accountName').removeClass('has-error');
+		}
+		if ($.trim($('#accountNumber').val()).length == 0) {
+			error = error_accountNumber = 'Please input Account Number';
+			$('#error_accountNumber').text(error_accountNumber);
+			$('#accountNumber').addClass('has-error');
+		} else {
+			if (!number.test($('#accountNumber').val())) {
+				error = error_accountNumber = 'Invalid Number';
+				$('#error_accountNumber').text(error_accountNumber);
+				$('#accountNumber').addClass('has-error');
+			} else {
+				error = error_accountNumber = '';
+				$('#error_accountNumber').text(error_accountNumber);
+				$('#accountNumber').removeClass('has-error');
+			}
+		}
+		if ($.trim($('#bank_name').val()).length == 0) {
+			error = error_bank_name = 'Please input Bank Name';
+			$('#error_bank_name').text(error_bank_name);
+			$('#bank_name').addClass('has-error');
+		} else {
+			error = error_bank_name = '';
+			$('#error_bank_name').text(error_bank_name);
+			$('#bank_name').removeClass('has-error');
+		}
+
+		return error + error_accountNumber;
+	}
+	$(document).ready(function() {
+		$('#btn_invoice').click(function() {
+			var result = validateInvoice();
+			if (result == '') {
+				console.log('All fixed');
+				location = 'welcome-dashboard.html';
+				console.log(result + 'empty errors');
+			}
+			console.log('Business Button');
+			console.log(result);
+		});
+		$('#btn_back_invoice').click(function() {
+			$('#invoice').hide();
+			$('#invoice_info').removeClass('btn-blue tab-active');
+			$('#invoice_info').addClass('btn-grey btn-sm');
+			$('#business').show();
+			$('#business_info').addClass('btn-blue tab-active font-9');
+			$('#business_info').removeClass('btn-grey rounded-0');
+		});
+	});
+
 </script>
 <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 <script>
- //			window.pond = null;
- //
- FilePond.registerPlugin(
-  FilePondPluginFileValidateSize,
-  FilePondPluginImageExifOrientation,
-  FilePondPluginImagePreview
- );
- //
- //   // override default options
- FilePond.setOptions({
-  dropOnPage: true,
-  dropOnElement: true
- });
- //
- FilePond.parse(document.body);
+	//			window.pond = null;
+	//
+	FilePond.registerPlugin(
+		FilePondPluginFileValidateSize,
+		FilePondPluginImageExifOrientation,
+		FilePondPluginImagePreview
+	);
+	//
+	//   // override default options
+	FilePond.setOptions({
+		dropOnPage: true,
+		dropOnElement: true,
+		labelIdle: 'Drag & Drop your logo or <span class="filepond--label-action">Browse </span>'
+	});
+	//
+	FilePond.parse(document.body);
+
 </script>
+
 </html>
