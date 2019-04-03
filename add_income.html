@@ -19,7 +19,12 @@
 	<link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
 	<link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
 	<link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/css/jquery.datepick.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/css/smoothness.datepick.min.css" />
 	<link href="css/main.css?version=4.4.0" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
@@ -485,246 +490,101 @@ END - Top Bar
 										</div>
 									</div>
 									<h6 class="element-header">
-										Dashboard
+										Create Other Income
 									</h6>
 									<div class="element-content">
 										<div class="row">
-											<div class="col-sm-4 col-xxxl-3">
+											<div class="col-sm-12 col-xxxl-12">
 												<span class="element-box el-tablo p-2">
-													<div class="label text-center color-default mb-2">
-														INVOICE
-													</div>
-													<ul class="list-unstyled mb-1">
-														<li class="list-inline-item small">
-															2 awaiting
-														</li>
-														<li class="list-inline-item float-md-right small">
-															NGN 100,495.20
-														</li>
-													</ul>
-													<ul class="list-unstyled mb-1">
-														<li class="list-inline-item small">
-															0 overdue
-														</li>
-														<li class="list-inline-item float-md-right small">
-															<span class="text-danger">NGN 0.00</span>
-														</li>
-													</ul>
-													<ul class="list-unstyled mb-1">
-														<li class="list-inline-item small">
-															0 draft
-														</li>
-														<li class="list-inline-item float-md-right small">
-															NGN 0.00
-														</li>
-													</ul>
-													<ul class="list-unstyled mb-1 text-center">
-														<a href="create_invoice.html" class="btn btn-simple text-white btn-sm mt-2">+ New Invoice
-														</a>
-													</ul>
+													<form class="p-3">
+														<div class="form-row">
+															<div class="form-group col-md-4">
+																<label class="onboard" for="surname">Client</label>
+																<select id="customers" class="form-control form-control-sm e-select" data-style="btn-default">
+																	<option disabled selected>Choose Client</option>
+																	<option value="" data-toggle="modal" data-target="#vendor_modal">Add New Vendor</option>
+																	<option>Client Exolve</option>
+																</select>
+															</div>
+															<div class="form-group col-md-4">
+																<label class="onboard" for="reference">ISSUED DATE</label>
+																<div class="input-group">
+																	<input required id="issued_date" class="form-control form-control-sm docs-date" name="date" placeholder="Pick a date">
+																	<div class="input-group-append">
+																		<button type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
+																			<i class="far fa-calendar-alt" aria-hidden="true"></i>
+																		</button>
+																	</div>
+																</div>
+															</div>
+															<div class="form-group col-md-4">
+																<label class="onboard" for="payment_status">Payment Status</label>
+																<select class="selectpicker form-control small" data-style="btn-default">
+																	<option disabled selected>Choose status</option>
+																	<option>Unpaud</option>
+																	<option>Paid</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-row">
+															<div class="form-group col-md-4">
+																<label class="onboard" for="surname">Category</label>
+																<select class="selectpicker form-control small" data-style="btn-default">
+																	<option disabled selected>Choose Category</option>
+																	<option>1</option>
+																</select>
+															</div>
+														</div>
+														<hr>
+														<p>Income Line</p>
+														<div class="form-row append-line">
+															<div class="form-group col-md-4">
+																<label class="onboard" for="item">Item*
+																</label>
+																<input type="text" class="form-control dark pb-0" id="item" placeholder="">
+															</div>
+															<div class="form-group col-md-4">
+																<label class="onboard" for="description">Description</label>
+																<input type="text" class="form-control dark pb-0" id="description" placeholder="">
+															</div>
+															<div class="form-group col-md-3">
+																<label class="onboard" for="unit_price">Unit Price</label>
+																<input type="text" class="form-control dark pb-0" id="unit_price" placeholder="">
+															</div>
+															<div class="form-group col-md-1 text-center">
+																<!--                <img src="img/custom-icons/delete.svg" alt="delete" class="mt-4 pt-1" />-->
+															</div>
+															<div class="form-group col-md-2">
+																<label class="onboard" for="quantity">Quantity</label>
+																<input type="text" class="form-control dark pb-0" id="quantity" placeholder="">
+															</div>
+															<div class="form-group col-md-3">
+																<label class="onboard" for="tax">Tax</label>
+																<input type="text" class="form-control dark pb-0" id="tax" placeholder="">
+															</div>
+															<div class="form-group col-md-3 ml-auto mt-3">
+																<label class="onboard" for="discount">Net Total</label>
+																<p class="font-12">$000.000.00</p>
+															</div>
+														</div>
+														<hr />c
+														<div class="row my-3">
+															<div class="col text-center">
+																<p class="small" id="add_row" href="#"> + Add another line item </p>
+															</div>
+														</div>
+														<div class="form-row my-5">
+															<div class="col-md-8 ml-auto px-3 ml-auto">
+																<a href="#" class="btn btn-gray px-4">Cancel</a>
+																<a href="invoice_preview.html" class="btn btn-green-dark px-4">Save</a>
+															</div>
+														</div>
+													</form>
 												</span>
 											</div>
-											<div class="col-sm-4 col-xxxl-3">
-												<span class="element-box el-tablo p-2" href="#">
-													<div class="label text-center color-default mb-2">
-														EXPENSE TRACKER
-													</div>
-													<p class="text-center small">You haven't registered any purchases or
-														expenses yet.Let's help keep track of your expenses by creating
-														you first purchase.</p>
-													<ul class="list-unstyled mb-1 text-center">
-														<a href="create_expense.html" class="btn btn-simple text-white btn-sm">+ New
-															Purchase</a>
-													</ul>
-												</span>
-											</div>
-											<div class="col-sm-4 col-xxxl-3">
-												<span class="element-box el-tablo p-2" href="#">
-													<div class="label text-center color-default mb-2">
-														Reports
-													</div>
-													<p class="text-center small">You haven't created any invoices yet.
-														Let's make some money by creating your first sales invoice!.</p>
-													<ul class="list-unstyled mb-1 text-center">
-														<a href="reports.html" class="btn btn-simple text-white btn-sm px-5 mt-3">Open</a>
-													</ul>
-												</span>
-											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-8 col-xxxl-6">
-								<div class="element-wrapper pb-0">
-									<h6 class="element-header">
-										Invoice and Expense Chart
-									</h6>
-									<div class="element-box">
-										<div class="os-tabs-w">
-											<div class="os-tabs-controls">
-												<ul class="nav nav-tabs smaller">
-													<li class="nav-item">
-														<a class="nav-link active" data-toggle="tab" href="#tab_overview">Overview</a>
-													</li>
-												</ul>
-												<ul class="nav nav-pills smaller d-none d-md-flex">
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#">Today</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#">14 Days</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#">Last Month</a>
-													</li>
-												</ul>
-											</div>
-											<div class="tab-content">
-												<div class="tab-pane active" id="tab_overview">
-													<div class="el-tablo bigger">
-														<div class="label">
-															Unique Visitors
-														</div>
-														<div class="value">
-															12,537
-														</div>
-													</div>
-													<div class="el-chart-w">
-														<canvas height="150px" id="lineChart" width="600px"></canvas>
-													</div>
-												</div>
-												<div class="tab-pane" id="tab_sales"></div>
-												<div class="tab-pane" id="tab_conversion"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-4 d-xxxl-none">
-								<!--START - Top Selling Chart-->
-								<div class="element-wrapper pb-0">
-									<h6 class="element-header">Sales / Purchases</h6>
-									<div class="element-box">
-										<div class="el-chart-w">
-											<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
-												<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-													<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
-													</div>
-												</div>
-												<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-													<div style="position:absolute;width:200%;height:200%;left:0; top:0">
-													</div>
-												</div>
-											</div>
-											<canvas height="146" id="donutChart" width="146" style="display: block; width: 146px; height: 146px;" class="chartjs-render-monitor"></canvas>
-											<div class="inside-donut-chart-label"><strong>142</strong><span>Total
-													Orders</span></div>
-										</div>
-										<div class="el-legend condensed">
-											<div class="row">
-												<div class="col-auto col-xxxxl-6 ml-sm-auto mr-sm-auto col-6">
-													<div class="legend-value-w">
-														<div class="legend-pin legend-pin-squared" style="background-color: #8FC038;"></div>
-														<div class="legend-value"><span>Invoice</span>
-															<div class="legend-sub-value">180</div>
-														</div>
-													</div>
-													<div class="legend-value-w" 5>
-														<div class="legend-pin legend-pin-squared" style="background-color: #157FCC;"></div>
-														<div class="legend-value"><span>Expenses</span>
-															<div class="legend-sub-value">180</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--END - Top Selling Chart-->
-							</div>
-							<div class="d-none d-xxxl-block col-xxxl-6">
-								<!--START - Questions per Product-->
-								<div class="element-wrapper">
-									<div class="element-actions">
-										<form class="form-inline justify-content-sm-end">
-											<select class="form-control form-control-sm rounded">
-												<option value="Pending">Today</option>
-												<option value="Active">Last Week </option>
-												<option value="Cancelled">Last 30 Days</option>
-											</select>
-										</form>
-									</div>
-									<h6 class="element-header">Inventory Stats</h6>
-									<div class="element-box">
-										<div class="os-progress-bar primary">
-											<div class="bar-labels">
-												<div class="bar-label-left"><span class="bigger">Eyeglasses</span></div>
-												<div class="bar-label-right"><span class="info">25 items / 10
-														remaining</span></div>
-											</div>
-											<div class="bar-level-1" style="width: 100%">
-												<div class="bar-level-2" style="width: 70%">
-													<div class="bar-level-3" style="width: 40%"></div>
-												</div>
-											</div>
-										</div>
-										<div class="os-progress-bar primary">
-											<div class="bar-labels">
-												<div class="bar-label-left"><span class="bigger">Outwear</span></div>
-												<div class="bar-label-right"><span class="info">18 items / 7
-														remaining</span></div>
-											</div>
-											<div class="bar-level-1" style="width: 100%">
-												<div class="bar-level-2" style="width: 40%">
-													<div class="bar-level-3" style="width: 20%"></div>
-												</div>
-											</div>
-										</div>
-										<div class="os-progress-bar primary">
-											<div class="bar-labels">
-												<div class="bar-label-left"><span class="bigger">Shoes</span></div>
-												<div class="bar-label-right"><span class="info">15 items / 12
-														remaining</span></div>
-											</div>
-											<div class="bar-level-1" style="width: 100%">
-												<div class="bar-level-2" style="width: 60%">
-													<div class="bar-level-3" style="width: 30%"></div>
-												</div>
-											</div>
-										</div>
-										<div class="os-progress-bar primary">
-											<div class="bar-labels">
-												<div class="bar-label-left"><span class="bigger">Jeans</span></div>
-												<div class="bar-label-right"><span class="info">12 items / 4
-														remaining</span></div>
-											</div>
-											<div class="bar-level-1" style="width: 100%">
-												<div class="bar-level-2" style="width: 30%">
-													<div class="bar-level-3" style="width: 10%"></div>
-												</div>
-											</div>
-										</div>
-										<div class="mt-4 border-top pt-3">
-											<div class="element-actions d-none d-sm-block">
-												<form class="form-inline justify-content-sm-end">
-													<select class="form-control form-control-sm form-control-faded">
-														<option selected="true">Last 30 days</option>
-														<option>This Week</option>
-														<option>This Month</option>
-														<option>Today</option>
-													</select>
-												</form>
-											</div>
-											<h6 class="element-box-header">Inventory History</h6>
-											<div class="el-chart-w">
-												<canvas data-chart-data="13,28,19,24,43,49,40,35,42,46,38,32,45" height="0" id="liteLineChartV3" width="0" style="display: block; width: 0px; height: 0px;" class="chartjs-render-monitor"></canvas>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--END - Questions per product                  -->
 							</div>
 						</div>
 						<!--------------------
@@ -803,71 +663,111 @@ START - Sidebar
 END - Sidebar
 -------------------->
 				</div>
-				<div class="container">
-					<div class="row pt-4">
-						<div class="col-sm-12">
-							<!--START - Recent Ticket Comments-->
-							<div class="element-wrapper">
-								<h6 class="element-header">Recent Transactions</h6>
-								<div class="element-box-tp">
-									<div class="table-responsive">
-										<table class="table table-padded">
-											<thead>
-												<tr>
-													<th>Status</th>
-													<th>Date</th>
-													<th>Description</th>
-													<th class="text-center">Category</th>
-													<th>Amount</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="nowrap"><span class="status-pill smaller green"></span><span>Active</span>
-													</td>
-													<td><span>Today</span><span class="smaller lighter">1:52am</span>
-													</td>
-													<td>
-														<div class="smaller lighter">I have enabled the software for you, you can try now...</div>
-													</td>
-													<td class="text-center"><a class="badge badge-success-inverted" href="">Shopping</a></td>
-													<td>
-														<div class="smaller lighter text-success">+N180, 000</div>
-													</td>
-												</tr>
-												<tr>
-													<td class="nowrap"><span class="status-pill smaller red"></span><span>Closed</span>
-													</td>
-													<td><span>Jan 19th</span><span class="smaller lighter">3:22pm</span>
-													</td>
-													<td>
-														<div class="smaller lighter">Please approve this request so we can move...</div>
-													</td>
-													<td class="text-center"><a class="badge badge-danger-inverted" href="">Cafe</a></td>
-													<td>
-														<div class="smaller lighter text-danger">-N80, 000</div>
-													</td>
-												</tr>
-												<tr>
-													<td class="nowrap"><span class="status-pill smaller yellow"></span><span>Pending</span>
-													</td>
-													<td><span>Yesterday</span><span class="smaller lighter">7:45am</span></td>
-													<td>
-														<div class="smaller lighter">We will need some login credentials to make...</div>
-													</td>
-													<td class="text-center"><a class="badge badge-warning-inverted" href="">Restaurants</a></td>
-													<td>
-														<div class="smaller lighter text-danger">-N50, 000</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="vendor_modal" tabindex="-1" role="dialog" aria-labelledby="vendor_modal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="">Add a customer</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form id="add_customer" class="" method="post" action="">
+						<div class="modal-body">
+							<nav>
+								<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+									<a class="nav-dash nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Contact</a>
+									<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Billing</a>
+									<a class="nav-item nav-link" id="nav-bank-tab" data-toggle="tab" href="#nav_bank_details" role="tab" aria-controls="nav-profile" aria-selected="false">Bank Details</a>
+								</div>
+							</nav>
+							<div class="tab-content my-3" id="nav-tabContent">
+								<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+									<div class="section">
+										<div class="form-row">
+											<div class="form-group col-md-10">
+												<label class="onboard" for="business_name">Business Name</label>
+												<input required name="business_name" type="text" class="form-control dark" id="business_name" placeholder="XYZ Incoporated">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-5">
+												<label class="onboard" for="first_name">Contact First Name</label>
+												<input required name="first_name" type="text" class="form-control dark" id="first_name" placeholder="First Name">
+											</div>
+											<div class="form-group col-md-5">
+												<label class="onboard" for="last_name">Contact Last Name</label>
+												<input required name="last_name" type="text" class="form-control dark" id="last_name" placeholder="Last Name">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-10">
+												<label class="onboard" for="phone_number">Email</label>
+												<input required name="email" type="email" class="form-control dark" id="email" placeholder="sample@domain.xyz">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-10">
+												<label class="onboard" for="phone_number">Phone Number</label>
+												<input required name="phone_number" type="text" class="form-control dark" id="phone_number" placeholder="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+									<div class="section">
+										<div class="form-row">
+											<div class="form-group col-md-12">
+												<label class="onboard" for="address">Address line 1</label>
+												<input name="address" type="text" class="form-control dark" id="address" placeholder="">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-4">
+												<label class="onboard" for="street">Street</label>
+												<input name="street" type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
+											</div>
+											<div class="form-group col-md-4">
+												<label class="onboard" for="city">City</label>
+												<input name="city" type="text" class="form-control dark" id="city" placeholder="Ikeja">
+											</div>
+											<div class="form-group col-md-4">
+												<label class="onboard" for="state">State</label>
+												<input name="state" type="text" class="form-control dark" id="state" placeholder="Lagos">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-4">
+												<label class="onboard" for="postal_code">Postal/Zip code</label>
+												<input name="postal_code" type="text" class="form-control dark" id="postal_code" placeholder="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="nav_bank_details" role="tabpanel" aria-labelledby="nav-bank-tab">
+									<div class="section">
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label class="onboard" for="account_number">Account Number</label>
+												<input name="account_number" type="text" class="form-control dark" id="account_number" placeholder="">
+											</div>
+											<div class="form-group col-md-6">
+												<label class="onboard" for="account_name">Account Name</label>
+												<input name="account_name" type="text" class="form-control dark" id="account_name" placeholder="">
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!--END - Recent Ticket Comments-->
 						</div>
-					</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+							<button type="submit" class="btn btn-primary">Save changes</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -877,6 +777,7 @@ END - Sidebar
 	<script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
 	<script src="bower_components/moment/moment.js"></script>
 	<script src="bower_components/chart.js/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 	<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
 	<script src="bower_components/ckeditor/ckeditor.js"></script>
@@ -901,8 +802,51 @@ END - Sidebar
 	<script src="bower_components/bootstrap/js/dist/tab.js"></script>
 	<script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
 	<script src="bower_components/bootstrap/js/dist/popover.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/js/jquery.plugin.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/js/jquery.datepick.min.js"></script>
+
 	<script src="js/demo_customizer.js?version=4.4.0"></script>
 	<script src="js/main.js?version=4.4.0"></script>
+	<script src="js/logic.js?version=4.4.0"></script>
+	<script>
+		$(document).ready(function() {
+			var counter = 0;
+			$("#add_row").on("click", function() {
+				var newRow = $("<div class='form-row'>");
+				var cols = "";
+				cols += ' <div class="form-group col-md-4"><label class="onboard" for="note">Item*</label><input type="text" class="form-control dark pb-0" id="item" placeholder="" name="item' + counter + '"></div>';
+				cols += '<div class="form-group col-md-4"><label class="onboard" for="description">Description</label> <input data-brackets-id="79011" type="text" class="form-control dark pb-0" id="description" placeholder="" name="description' + counter + '"></div>';
+				cols += '<div class="form-group col-md-3"><label class="onboard" for="unit_price">Unit Price</label><input type="text" class="form-control dark pb-0" id="unit_price" placeholder="" name="unit_price' + counter + '"></div>';
+				cols += '<div class="form-group col-md-1 text-center"><img src="img/custom-icons/delete.svg" alt="delete" class="ibtnDel mt-4 pt-1" /></div>';
+				cols += '<div class="form-group col-md-2"><label class="onboard" for="quantity">Quantity</label><input type="text" class="form-control dark pb-0" id="quantity" placeholder="" name="quantity' + counter + '"></div>';
+				cols += '<div class="form-group col-md-3"><label class="onboard" for="tax">Tax</label><input type="text" class="form-control dark pb-0" id="tax" placeholder="" name="tax' + counter + '"></div>';
+				newRow.append(cols);
+				$("div.append-line").append(newRow);
+				counter++;
+			});
+			$("div.append-line").on("click", ".ibtnDel", function(event) {
+				$(this).closest("div.form-row").remove();
+				counter -= 1
+			});
+		});
+
+		function calculateRow(row) {
+			var price = +row.find('input[name^="price"]').val();
+		}
+
+		function calculateGrandTotal() {
+			var grandTotal = 0;
+			$("table.order-list").find('input[name^="price"]').each(function() {
+				grandTotal += +$(this).val();
+			});
+			$("#grandtotal").text(grandTotal.toFixed(2));
+		}
+
+		$(function() {
+			$('#issued_date').datepick();
+		});
+
+	</script>
 </body>
 
 </html>
