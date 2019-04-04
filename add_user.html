@@ -395,7 +395,7 @@ END - Main Menu
 							<!--------------------
 	START - Settings Link in secondary top menu
 	-------------------->
-							<div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+							<div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left d-none">
 								<i class="os-icon os-icon-ui-46"></i>
 								<div class="os-dropdown">
 									<div class="icon-w">
@@ -425,49 +425,39 @@ END - Main Menu
 	START - User avatar and menu in secondary top menu
 	-------------------->
 							<div class="logged-user-w">
-								<div class="logged-user-i">
+							<div class="logged-user-i">
+								<div class="logged-user-avatar-info d-flex">
 									<div class="avatar-w">
 										<img alt="" src="img/avatar1.jpg">
 									</div>
-									<div class="logged-user-menu color-style-bright">
-										<div class="logged-user-avatar-info">
-											<div class="avatar-w">
-												<img alt="" src="img/avatar1.jpg">
-											</div>
-											<div class="logged-user-info-w">
-												<div class="logged-user-name">
-													Maria Gomez
-												</div>
-												<div class="logged-user-role">
-													Administrator
-												</div>
-											</div>
+									<div class="logged-user-info-w mx-3 mt-1">
+										<div class="logged-user-name">
+											Maria Gomez
 										</div>
-										<div class="bg-icon">
-											<i class="os-icon os-icon-wallet-loaded"></i>
+										<div class="logged-user-role">
+											Administrator
 										</div>
-										<ul>
-											<li>
-												<a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
-											</li>
-											<li>
-												<a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
-														Details</span></a>
-											</li>
-											<li>
-												<a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
-											</li>
-											<li>
-												<a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
-											</li>
-											<li>
-												<a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
-											</li>
-										</ul>
 									</div>
 								</div>
+								<div class="logged-user-menu color-style-bright">
+									<div class="bg-icon">
+										<i class="os-icon os-icon-wallet-loaded"></i>
+									</div>
+									<ul>
+										<li>
+											<a href="profile.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
+													Details</span></a>
+										</li>
+										<li>
+											<a href="billing.html"><i class="os-icon os-icon-coins-4"></i><span>Subscription</span></a>
+										</li>
+										<li>
+											<a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
+										</li>
+									</ul>
+								</div>
 							</div>
-							<!--------------------
+						</div>	<!--------------------
 	END - User avatar and menu in secondary top menu
 	-------------------->
 						</div>
@@ -487,19 +477,15 @@ END - Main Menu
 								<div class="col-sm-12">
 									<div class="element-wrapper">
 										<div class="element-actions">
-											<form class="form-inline justify-content-sm-end">
-												<select class="form-control form-control-sm rounded">
-													<option value="Pending">
-														Today
-													</option>
-													<option value="Active">
-														Last Week
-													</option>
-													<option value="Cancelled">
-														Last 30 Days
-													</option>
-												</select>
-											</form>
+											<a href="" class="text-deco dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<a class="dropdown-item small" href="create_invoice.html">Create new Invoice</a>
+											<a class="dropdown-item small" href="create_bill.html">Create new Bill</a>
+											<a class="dropdown-item small" href="add_income.html.html">Add other Income</a>
+											<a class="dropdown-item small" href="create_other_expense.html">Add other Expense</a>
+											<a class="dropdown-item small" href="create_customer.html">Add new Customer</a>
+											<a class="dropdown-item small" href="create_vendor.html">Add new Vendors</a>
+										</div>
 										</div>
 										<h6 class="element-header">
 											Add Users
@@ -510,7 +496,7 @@ END - Main Menu
 													<span class="element-box el-tablo p-2">
 														<div class="row mb-4">
 															<div class="col-md-12">
-																<h6 class="text-blue text-center font-weight-normal mt-3">HI, add users and give each access to certain features.</h6>
+																<h6 class="text-blue text-center font-weight-normal mt-3">HI, creas and give each access to certain features.</h6>
 															</div>
 														</div>
 														<form>

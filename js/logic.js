@@ -8,10 +8,6 @@ function togglePassword() {
 }
 
 
-$(function () {
-	$("#country, #companyCountry").countrySelect();
-});
-
 
 $(function () {
 	$("#upload_link").on('click', function (e) {
@@ -30,27 +26,38 @@ $(function () {
 	});
 });
 
-
-	var input = document.querySelector("#phoneNumber, #contactPhoneNumber,#companyPhoneNumber");
-	window.intlTelInput(input, {
-		initialCountry: "auto",
+$(function () {
+	$("#country, #companyCountry").countrySelect({
+		initialCountry: 'auto',
 		geoIpLookup: function (callback) {
-			$.get('https://ipinfo.io', function () {}, "jsonp").always(function (resp) {
+			$.get('http://ipinfo.io', function () {}, "jsonp").always(function (resp) {
 				var countryCode = (resp && resp.country) ? resp.country : "";
 				callback(countryCode);
 			});
-		},
-		utilsScript: "js/utils.js" // just for formatting/placeholders etc
+		}
 	});
+});
 
-	var input = document.querySelector(" #contactPhoneNumber");
-	window.intlTelInput(input, {
-		initialCountry: "auto",
-		geoIpLookup: function (callback) {
-			$.get('https://ipinfo.io', function () {}, "jsonp").always(function (resp) {
-				var countryCode = (resp && resp.country) ? resp.country : "";
-				callback(countryCode);
-			});
-		},
-		utilsScript: "js/utils.js" // just for formatting/placeholders etc
-	});
+var input = document.querySelector("#phoneNumber, #contactPhoneNumber,#companyPhoneNumber");
+var locale = window.intlTelInput(input, {
+	initialCountry: "auto",
+	geoIpLookup: function (callback) {
+		$.get('https://ipinfo.io', function () {}, "jsonp").always(function (resp) {
+			var countryCode = (resp && resp.country) ? resp.country : "";
+			callback(countryCode);
+		});
+	},
+	utilsScript: "js/utils.js" // just for formatting/placeholders etc
+});
+
+var input = document.querySelector("#contactPhoneNumber");
+window.intlTelInput(input, {
+	initialCountry: "auto",
+	geoIpLookup: function (callback) {
+		$.get('https://ipinfo.io', function () {}, "jsonp").always(function (resp) {
+			var countryCode = (resp && resp.country) ? resp.country : "";
+			callback(countryCode);
+		});
+	},
+	utilsScript: "js/utils.js" // just for formatting/placeholders etc
+});

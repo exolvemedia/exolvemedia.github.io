@@ -19,12 +19,10 @@
 	<link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
 	<link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
 	<link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/css/jquery.datepick.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/css/smoothness.datepick.min.css" />
-	<link href="css/main.css?version=4.4.0" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/intlTelInput.min.css" rel="stylesheet">
+	<link href="css/countrySelect.min.css" rel="stylesheet">
+	<link href="css/main.css?version=4.4.0" rel="stylesheet">
 </head>
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
@@ -35,7 +33,7 @@ START - Mobile Menu
 -------------------->
 			<div class="menu-mobile menu-activated-on-click color-scheme-dark">
 				<div class="mm-logo-buttons-w">
-					<a class="" href="index.html"><img src="img/logo.svg" width="120"></a>
+					<a class="mm-logo" href="index.html"><img src="img/logo.png"><span>Clean Admin</span></a>
 					<div class="mm-buttons">
 						<div class="content-panel-open">
 							<div class="os-icon os-icon-grid-circles"></div>
@@ -396,25 +394,25 @@ START - Top Menu Controls
 						<!--------------------
 START - Settings Link in secondary top menu
 -------------------->
-						<div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left d-none">
-							<i class="os-icon os-icon-grid-circles"></i>
+						<div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+							<i class="os-icon os-icon-ui-46"></i>
 							<div class="os-dropdown">
 								<div class="icon-w">
 									<i class="os-icon os-icon-ui-46"></i>
 								</div>
 								<ul>
 									<li>
-										<a href="create_invoice.html"><i class="os-icon os-icon-ui-49"></i><span>Create Invoice</span></a>
+										<a href="users_profile_small.html"><i class="os-icon os-icon-ui-49"></i><span>Profile Settings</span></a>
 									</li>
 									<li>
-										<a href="create_expense.html"><i class="os-icon os-icon-coins-4"></i><span>Create Expense</span></a>
+										<a href="users_profile_small.html"><i class="os-icon os-icon-grid-10"></i><span>Billing Info</span></a>
 									</li>
 									<li>
-										<a href="invoice_list.html"><i class="os-icon os-icon-newspaper"></i><span>My
+										<a href="users_profile_small.html"><i class="os-icon os-icon-ui-44"></i><span>My
 												Invoices</span></a>
 									</li>
 									<li>
-										<a href="reports.html"><i class="os-icon os-icon-bar-chart-stats-up"></i><span>Reports</span></a>
+										<a href="users_profile_small.html"><i class="os-icon os-icon-ui-15"></i><span>Cancel Account</span></a>
 									</li>
 								</ul>
 							</div>
@@ -427,30 +425,39 @@ START - User avatar and menu in secondary top menu
 -------------------->
 						<div class="logged-user-w">
 							<div class="logged-user-i">
-								<div class="logged-user-avatar-info d-flex">
-									<div class="avatar-w">
-										<img alt="" src="img/avatar1.jpg">
-									</div>
-									<div class="logged-user-info-w mx-3 mt-1">
-										<div class="logged-user-name">
-											Maria Gomez
-										</div>
-										<div class="logged-user-role">
-											Administrator
-										</div>
-									</div>
+								<div class="avatar-w">
+									<img alt="" src="img/avatar1.jpg">
 								</div>
 								<div class="logged-user-menu color-style-bright">
+									<div class="logged-user-avatar-info">
+										<div class="avatar-w">
+											<img alt="" src="img/avatar1.jpg">
+										</div>
+										<div class="logged-user-info-w">
+											<div class="logged-user-name">
+												Maria Gomez
+											</div>
+											<div class="logged-user-role">
+												Administrator
+											</div>
+										</div>
+									</div>
 									<div class="bg-icon">
 										<i class="os-icon os-icon-wallet-loaded"></i>
 									</div>
 									<ul>
 										<li>
-											<a href="profile.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
+											<a href="apps_email.html"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
+										</li>
+										<li>
+											<a href="users_profile_big.html"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
 													Details</span></a>
 										</li>
 										<li>
-											<a href="billing.html"><i class="os-icon os-icon-coins-4"></i><span>Subscription</span></a>
+											<a href="users_profile_small.html"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
+										</li>
+										<li>
+											<a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
 										</li>
 										<li>
 											<a href="#"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
@@ -479,107 +486,182 @@ END - Top Bar
 							<div class="col-sm-12">
 								<div class="element-wrapper">
 									<div class="element-actions">
-										<a href="" class="text-deco dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item small" href="create_invoice.html">Create new Invoice</a>
-											<a class="dropdown-item small" href="create_bill.html">Create new Bill</a>
-											<a class="dropdown-item small" href="add_income.html.html">Add other Income</a>
-											<a class="dropdown-item small" href="create_other_expense.html">Add other Expense</a>
-											<a class="dropdown-item small" href="create_customer.html">Add new Customer</a>
-											<a class="dropdown-item small" href="create_vendor.html">Add new Vendors</a>
-										</div>
+										<form class="form-inline justify-content-sm-end">
+											<select class="form-control form-control-sm rounded">
+												<option value="Pending">
+													Today
+												</option>
+												<option value="Active">
+													Last Week
+												</option>
+												<option value="Cancelled">
+													Last 30 Days
+												</option>
+											</select>
+										</form>
 									</div>
 									<h6 class="element-header">
-										Other Expense
+										Profile
 									</h6>
 									<div class="element-content">
 										<div class="row">
 											<div class="col-sm-12 col-xxxl-12">
 												<span class="element-box el-tablo p-2">
-													<form class="p-3">
-														<div class="form-row">
-															<div class="form-group col-md-4">
-																<label class="onboard" for="vendor_list">Vendor</label>
-																<select id="vendor_list" class="form-control form-control-sm e-select" data-style="btn-default">
-																	<option disabled selected>Choose Vendor</option>
-																	<option value="" data-toggle="modal" data-target="#vendor_modal">Add New Vendor</option>
-																	<option>Client Exolve</option>
-																</select>
-															</div>
-															<div class="form-group col-md-4">
-																<label class="onboard" for="reference">ISSUED DATE</label>
-																<div class="input-group">
-																	<input required id="issued_date" class="form-control form-control-sm docs-date" name="date" placeholder="Pick a date">
-																	<div class="input-group-append">
-																		<button type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
-																			<i class="far fa-calendar-alt" aria-hidden="true"></i>
-																		</button>
+													<section id="tabs" class="project-tab">
+														<div class="container">
+															<div class="row">
+																<div class="col-md-12">
+
+																	<nav>
+																		<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+																			<a class="nav-dash nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My Profile</a>
+																			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Add Company Profile</a>
+																		</div>
+																	</nav>
+																	<div class="tab-content my-3" id="nav-tabContent">
+																		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+																			<form id="profileForm" method="post" action="profile.html">
+																				<div class="section">
+																					<div class="form-row">
+																						<div class="form-group col-md-3">
+																							<div class="text-center">
+																								<img src="img/avatar1.jpg" class="avatar" />
+																								<a id="upload_link" href="#"><span class="absolute"><img src="img/plus.png" /></span></a>
+																								<input id="upload" type="file" />
+																							</div>
+																							<p class="small text-center mt-2">Allen Charles</p>
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="surname">Surname</label>
+																							<input name="surname" type="text" class="form-control dark" id="surname" placeholder="Sample">
+																						</div>
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="lastname">Last Name</label>
+																							<input name="lastname" type="text" class="form-control dark" id="lastname" placeholder="Sample">
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="email">Email</label>
+																							<input name="email" type="email" class="form-control dark" id="email" placeholder="">
+																						</div>
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="alt_email">Alternate Email</label>
+																							<input name="alt_email" type="email" class="form-control dark" id="alt_email">
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="street">Street</label>
+																							<input name="street" type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
+																						</div>
+
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="city">City</label>
+																							<input name="city" type="text" class="form-control dark" id="city" placeholder="Ikeja">
+																						</div>
+
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="state">State</label>
+																							<input name="state" type="text" class="form-control dark" id="state" placeholder="Lagos">
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="company_rc">Company Rc</label>
+																							<input name="company_rc" type="text" class="form-control dark" id="company_rc" placeholder="">
+																						</div>
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="tax_id">Tax ID</label>
+																							<input name="tax_id" type="text" class="form-control dark" id="tax_id" placeholder="">
+																						</div>
+																					</div>
+																					<div class="d-flex">
+																						<div class="col">
+																							<button type="submit" class="btn-shadow float-right btn btn-blue shadow px-4" name="signup">Submit</button>
+																						</div>
+																					</div>
+																				</div>
+																			</form>
+																		</div>
+																		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+																			<form id="companyForm" method="post">
+																				<div class="section">
+																					<div class="form-row">
+																						<div class="form-group col-md-3">
+																							<div class="text-center">
+																								<img src="img/placeholder.png" class="" />
+																								<input id="upload" type="file" />
+																							</div>
+																						</div>
+																						<div class="form-group col-md-3">
+																							<div class="text-center">
+																								<button class="btn btn-blue px-4 btn-sm mt-md-4">UPLOAD LOGO </button>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="companyName">Company name</label>
+																							<input name="companyName" type="text" class="form-control dark" id="companyName" placeholder="Sample">
+																						</div>
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="category">Catergory</label>
+																							<select name="category" class="form-control dark onboard" id="category">
+																								<option selected="" disabled="">Select default payment</option>
+																								<option>2</option>
+																								<option>3</option>
+																							</select>
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="state">State</label>
+																							<input name="state" type="text" class="form-control dark" id="state" placeholder="street">
+																						</div>
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="city">City</label>
+																							<input name="city" type="text" class="form-control dark" id="city" placeholder="city">
+																						</div>
+																						<div class="form-group col-md-4">
+																							<label class="onboard" for="street">Street</label>
+																							<input name="street" type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-12">
+																							<label class="onboard" for="bussinessdescription">Bussiness Description</label>
+																							<textarea name="bussinessdescription" class="form-control dark" rows="3" id="bussinessdescription"></textarea>
+																						</div>
+																					</div>
+																					<div class="form-row">
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="companyPhoneNumber">Phone number</label>
+																							<input name="companyPhoneNumber" type="text" class="form-control dark" id="companyPhoneNumber" placeholder="">
+																						</div>
+																						<div class="form-group col-md-6">
+																							<label class="onboard" for="companyCountry">Country</label>
+																							<input name="companyCountry" type="text" class="form-control dark" id="companyCountry" placeholder="">
+																						</div>
+																					</div>
+																					<div class="d-flex">
+																						<div class="col">
+																							<button type="submit" name="submit" class="btn-shadow float-right btn btn-blue shadow px-4">Submit</button>
+																						</div>
+																					</div>
+																				</div>
+																			</form>
+																		</div>
 																	</div>
+
 																</div>
 															</div>
-															<div class="form-group col-md-4">
-																<label class="onboard" for="payment_status">Payment Status</label>
-																<select class="selectpicker form-control small" data-style="btn-default">
-																	<option disabled selected>Choose status</option>
-																	<option>Unpaud</option>
-																	<option>Paid</option>
-																</select>
-															</div>
 														</div>
-														<div class="form-row">
-															<div class="form-group col-md-4">
-																<label class="onboard" for="surname">Category</label>
-																<select class="selectpicker form-control small" data-style="btn-default">
-																	<option disabled selected>Choose Category</option>
-																	<option>1</option>
-																</select>
-															</div>
-														</div>
-														<hr>
-														<p>Expense Line</p>
-														<div class="form-row append-line">
-															<div class="form-group col-md-4">
-																<label class="onboard" for="item">Item*
-																</label>
-																<input type="text" class="form-control dark pb-0" id="item" placeholder="">
-															</div>
-															<div class="form-group col-md-4">
-																<label class="onboard" for="description">Description</label>
-																<input type="text" class="form-control dark pb-0" id="description" placeholder="">
-															</div>
-															<div class="form-group col-md-3">
-																<label class="onboard" for="unit_price">Unit Price</label>
-																<input type="text" class="form-control dark pb-0" id="unit_price" placeholder="">
-															</div>
-															<div class="form-group col-md-1 text-center">
-																<!--                <img src="img/custom-icons/delete.svg" alt="delete" class="mt-4 pt-1" />-->
-															</div>
-															<div class="form-group col-md-2">
-																<label class="onboard" for="quantity">Quantity</label>
-																<input type="text" class="form-control dark pb-0" id="quantity" placeholder="">
-															</div>
-															<div class="form-group col-md-3">
-																<label class="onboard" for="tax">Tax</label>
-																<input type="text" class="form-control dark pb-0" id="tax" placeholder="">
-															</div>
-															<div class="form-group col-md-3 ml-auto mt-3">
-																<label class="onboard" for="discount">Net Total</label>
-																<p class="font-12">$000.000.00</p>
-															</div>
-														</div>
-														<hr />
-														<div class="row my-3">
-															<div class="col text-center">
-																<a class="small" id="add_row" href="#"> + Add another line item </a>
-															</div>
-														</div>
-														<div class="form-row my-5">
-															<div class="col-md-8 ml-auto px-3 ml-auto">
-																<a href="#" class="btn btn-gray px-4">Cancel</a>
-																<a href="invoice_preview.html" class="btn btn-green-dark px-4">Save</a>
-															</div>
-														</div>
-													</form>
+													</section>
 												</span>
 											</div>
 										</div>
@@ -616,22 +698,14 @@ START - Sidebar
 							<div class="element-box-tp">
 								<div class="el-buttons-list full-width">
 									<a class="element-box el-tablo p-2" href="#">
-										<div class="color-default mb-2">
-											Financial accounts
+										<div class="label color-default mb-2">
+											EXPENSE TRACKER
 										</div>
-										<p class="small mb-0"><b>Cash on Hand (Other)</b></p>
-										<p class="small mb-2"><img src="img/custom-icons/Ellipse%202.svg" alt="reconciled" class="mb-1" /> <b>Reconciled</b></p>
-										<p class="small mb-1">Balance in books: NGN 0.00</p>
-										<p class="small">Statement balance: NGN 0.00</p>
-										<div class="color-default mb-2">
-											Result this month <span class="text-dark small">(February)</span>
+										<p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
+										<div class="label color-default mb-2">
+											EXPENSE TRACKER
 										</div>
-										<p class="small mb-0">Sales</p>
-										<p class="small">NGN 0.00</p>
-										<p class="small mb-0">Purchases / Expenses</p>
-										<p class="small">NGN 0.00</p>
-										<div class="border-bottom"></div>
-										<p class="small my-2">Result NGN 0.00</p>
+										<p class="small">You haven't registered any purchases or expenses yet. Let's help keep track of your expenses by creating you first purchase.</p>
 									</a>
 								</div>
 							</div>
@@ -652,7 +726,7 @@ START - Sidebar
 											yet. Let's help keep track of your expenses by creating you first purchase.
 										</p>
 										<div class="mb-1 text-center">
-											<a href="upgrade.html" class="btn btn-simple text-white btn-sm btn-block px-5 mt-3">Upgrade</a>
+											<button class="btn btn-simple text-white btn-sm btn-block px-5 mt-3">Upgrade</button>
 										</div>
 									</span>
 								</div>
@@ -665,119 +739,12 @@ END - Sidebar
 				</div>
 			</div>
 		</div>
-		<!-- Modal -->
-		<div class="modal fade" id="vendor_modal" tabindex="-1" role="dialog" aria-labelledby="vendor_modal" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="">Add a vendor</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<form id="add_customer" class="" method="post" action="">
-						<div class="modal-body">
-							<nav>
-								<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-									<a class="nav-dash nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Contact</a>
-									<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Billing</a>
-									<a class="nav-item nav-link" id="nav-bank-tab" data-toggle="tab" href="#nav_bank_details" role="tab" aria-controls="nav-profile" aria-selected="false">Bank Details</a>
-								</div>
-							</nav>
-							<div class="tab-content my-3" id="nav-tabContent">
-								<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-									<div class="section">
-										<div class="form-row">
-											<div class="form-group col-md-10">
-												<label class="onboard" for="business_name">Business Name</label>
-												<input required name="business_name" type="text" class="form-control dark" id="business_name" placeholder="XYZ Incoporated">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md-5">
-												<label class="onboard" for="first_name">Contact First Name</label>
-												<input required name="first_name" type="text" class="form-control dark" id="first_name" placeholder="First Name">
-											</div>
-											<div class="form-group col-md-5">
-												<label class="onboard" for="last_name">Contact Last Name</label>
-												<input required name="last_name" type="text" class="form-control dark" id="last_name" placeholder="Last Name">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md-10">
-												<label class="onboard" for="phone_number">Email</label>
-												<input required name="email" type="email" class="form-control dark" id="email" placeholder="sample@domain.xyz">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md-10">
-												<label class="onboard" for="phone_number">Phone Number</label>
-												<input required name="phone_number" type="text" class="form-control dark" id="phone_number" placeholder="">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-									<div class="section">
-										<div class="form-row">
-											<div class="form-group col-md-12">
-												<label class="onboard" for="address">Address line 1</label>
-												<input name="address" type="text" class="form-control dark" id="address" placeholder="">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md-4">
-												<label class="onboard" for="street">Street</label>
-												<input name="street" type="text" class="form-control dark" id="street" placeholder="1, Sample Street">
-											</div>
-											<div class="form-group col-md-4">
-												<label class="onboard" for="city">City</label>
-												<input name="city" type="text" class="form-control dark" id="city" placeholder="Ikeja">
-											</div>
-											<div class="form-group col-md-4">
-												<label class="onboard" for="state">State</label>
-												<input name="state" type="text" class="form-control dark" id="state" placeholder="Lagos">
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md-4">
-												<label class="onboard" for="postal_code">Postal/Zip code</label>
-												<input name="postal_code" type="text" class="form-control dark" id="postal_code" placeholder="">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="nav_bank_details" role="tabpanel" aria-labelledby="nav-bank-tab">
-									<div class="section">
-										<div class="form-row">
-											<div class="form-group col-md-6">
-												<label class="onboard" for="account_number">Account Number</label>
-												<input name="account_number" type="text" class="form-control dark" id="account_number" placeholder="">
-											</div>
-											<div class="form-group col-md-6">
-												<label class="onboard" for="account_name">Account Name</label>
-												<input name="account_name" type="text" class="form-control dark" id="account_name" placeholder="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-							<button type="submit" class="btn btn-primary">Save changes</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
 		<div class="display-type"></div>
 	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
 	<script src="bower_components/moment/moment.js"></script>
 	<script src="bower_components/chart.js/dist/Chart.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
 	<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
 	<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
 	<script src="bower_components/ckeditor/ckeditor.js"></script>
@@ -802,48 +769,103 @@ END - Sidebar
 	<script src="bower_components/bootstrap/js/dist/tab.js"></script>
 	<script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
 	<script src="bower_components/bootstrap/js/dist/popover.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/js/jquery.plugin.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepick/5.1.1/js/jquery.datepick.min.js"></script>
-
 	<script src="js/demo_customizer.js?version=4.4.0"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+	<script src="js/countrySelect.min.js"></script>
+	<script src="js/intlTelInput.min.js"></script>
+	<script src="js/logic.js"></script>
 	<script src="js/main.js?version=4.4.0"></script>
-	<script src="js/logic.js?version=4.4.0"></script>
 	<script>
 		$(document).ready(function() {
-			var counter = 0;
-			$("#add_row").on("click", function() {
-				var newRow = $("<div class='form-row'>");
-				var cols = "";
-				cols += ' <div class="form-group col-md-4"><label class="onboard" for="note">Item*</label><input type="text" class="form-control dark pb-0" id="item" placeholder="" name="item' + counter + '"></div>';
-				cols += '<div class="form-group col-md-4"><label class="onboard" for="description">Description</label> <input data-brackets-id="79011" type="text" class="form-control dark pb-0" id="description" placeholder="" name="description' + counter + '"></div>';
-				cols += '<div class="form-group col-md-3"><label class="onboard" for="unit_price">Unit Price</label><input type="text" class="form-control dark pb-0" id="unit_price" placeholder="" name="unit_price' + counter + '"></div>';
-				cols += '<div class="form-group col-md-1 text-center"><img src="img/custom-icons/delete.svg" alt="delete" class="ibtnDel mt-4 pt-1" /></div>';
-				cols += '<div class="form-group col-md-2"><label class="onboard" for="quantity">Quantity</label><input type="text" class="form-control dark pb-0" id="quantity" placeholder="" name="quantity' + counter + '"></div>';
-				cols += '<div class="form-group col-md-3"><label class="onboard" for="tax">Tax</label><input type="text" class="form-control dark pb-0" id="tax" placeholder="" name="tax' + counter + '"></div>';
-				newRow.append(cols);
-				$("div.append-line").append(newRow);
-				counter++;
+			$("#profileForm").validate({
+				rules: {
+					surname: "required",
+					lastname: "required",
+					email: {
+						required: true,
+						email: true
+					},
+					alt_email: {
+						required: true,
+						email: true
+					},
+					state: {
+						required: true,
+						minlength: 2
+					},
+					city: {
+						required: true,
+						minlength: 5
+					},
+					street: {
+						required: true,
+						minlength: 5,
+						equalTo: "#password"
+					},
+					company_rc: {
+						required: true,
+						minlength: 2
+					},
+					tax_id: {
+						required: true,
+						minlength: 5
+					}
+				},
+				messages: {
+					surname: "Please enter your surname",
+					lastname: "Please enter your lastname",
+					username: {
+						required: "Please enter a username",
+						minlength: "Your username must consist of at least 2 characters"
+					},
+					password: {
+						required: "Please provide a password",
+						minlength: "Your password must be at least 5 characters long"
+					},
+					confirm_password: {
+						required: "Please provide a password",
+						minlength: "Your password must be at least 5 characters long",
+						equalTo: "Please enter the same password as above"
+					},
+					email: "Please enter a valid email address"
+				}
 			});
-			$("div.append-line").on("click", ".ibtnDel", function(event) {
-				$(this).closest("div.form-row").remove();
-				counter -= 1
+
+
+			$("#companyForm").validate({
+				rules: {
+					companyName: "required",
+					category: "required",
+					state: {
+						required: true,
+						minlength: 2
+					},
+					city: {
+						required: true,
+						minlength: 5
+					},
+					street: {
+						required: true,
+						minlength: 5,
+						equalTo: "#password"
+					},
+					companyPhoneNumber: {
+						required: true,
+						minlength: 2
+					},
+					companyCountry: {
+						required: true,
+						minlength: 5
+					},
+					bussinessdescription: {
+						required: true,
+						minlength: 5
+					}
+				},
+				messages: {
+					companyName: "Please enter your company name",
+				}
 			});
-		});
-
-		function calculateRow(row) {
-			var price = +row.find('input[name^="price"]').val();
-		}
-
-		function calculateGrandTotal() {
-			var grandTotal = 0;
-			$("table.order-list").find('input[name^="price"]').each(function() {
-				grandTotal += +$(this).val();
-			});
-			$("#grandtotal").text(grandTotal.toFixed(2));
-		}
-
-		$(function() {
-			$('#issued_date').datepick();
 		});
 
 	</script>

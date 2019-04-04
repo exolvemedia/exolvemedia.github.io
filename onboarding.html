@@ -59,15 +59,17 @@
 											<span id="error_last_name" class="small text-danger"></span>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="onboard" for="Country">Country</label>
-										<input type="text" class="form-control dark" id="country" placeholder="">
-										<span id="error_country" class="text-danger small"></span>
-									</div>
+
 									<div class="form-group">
 										<label class="onboard" for="PhoneNumber">Phone Number</label>
 										<input type="text" class="form-control dark" id="phoneNumber" placeholder="">
 										<span id="error_mobile" class="small text-danger"></span>
+									</div>
+
+									<div class="form-group">
+										<label class="onboard" for="Country">Country</label>
+										<input type="text" class="form-control dark" id="country" placeholder="">
+										<span id="error_country" class="text-danger small"></span>
 									</div>
 									<div class="d-flex">
 										<div>
@@ -126,7 +128,7 @@
 								</div>
 								<div class="section none" id="invoice">
 									<div class="form-row">
-										<div class="form-group col-md-4">
+										<div class="form-group col-md-4 mb-0">
 											<label class="onboard" for="logo">Upload Company Logo</label>
 											<input type="file" id="logo" class="filepond mt-2" name="filepond my-3" data-max-file-size="10MB" data-max-files="3">
 										</div>
@@ -171,10 +173,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-6">
 											<label class="onboard" for="bank_name">Bank Name</label>
-											<select class="form-control onboard" id="bank_name">
-												<option disabled selected>Choose Bank</option>
-												<option>XYZ Bank</option>
-											</select>
+											<input type="text" class="form-control dark" id="bank_name" placeholder="Bank Name">
 											<span id="error_bank_name" class="small text-danger"></span>
 										</div>
 										<div class="form-group  col-md-6">
@@ -243,20 +242,7 @@
 	});
 
 </script>
-<script>
-	var input = document.querySelector("#phoneNumber");
-	window.intlTelInput(input, {
-		initialCountry: "auto",
-		geoIpLookup: function(callback) {
-			$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
-				var countryCode = (resp && resp.country) ? resp.country : "";
-				callback(countryCode);
-			});
-		},
-		utilsScript: "js/utils.js" // just for formatting/placeholders etc
-	});
 
-</script>
 <script>
 	function validatePersonal() {
 		var error_surname = '';
@@ -316,7 +302,8 @@
 			if (result == '') {
 				$('#personal').hide();
 				$('#personal_info').removeClass('btn-blue tab-active');
-				$('#personal_info').addClass('btn-grey btn-sm');
+				$('#personal_info').removeClass('btn-blue tab-active');
+				$('#personal_info').addClass('btn-grey btn-sm rounded-0');
 				$('#business').show();
 				$('#business_info').addClass('btn-blue tab-active font-9');
 				$('#business_info').removeClass('btn-grey rounded-0');
@@ -524,7 +511,7 @@
 	FilePond.setOptions({
 		dropOnPage: true,
 		dropOnElement: true,
-		labelIdle: 'Drag & Drop your logo or <span class="filepond--label-action">Browse </span>'
+		labelIdle: 'Drag & Drop <br/> <span class="filepond--label-action">Browse </span>'
 	});
 	//
 	FilePond.parse(document.body);
