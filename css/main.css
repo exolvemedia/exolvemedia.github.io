@@ -31528,3 +31528,40 @@ select::placeholder {
 	font-size: 0.7em;
 	color: #666;
 }
+
+.mytooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.mytooltip .tooltiptext {
+	visibility: hidden;
+	background-color: #5c5c5c;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -100px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.mytooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.mytooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
