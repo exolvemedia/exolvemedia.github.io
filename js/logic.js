@@ -8,13 +8,13 @@ function togglePassword() {
 }
 
 
-
 $(function () {
 	$("#upload_link").on('click', function (e) {
 		e.preventDefault();
 		$("#upload:hidden").trigger('click');
 	});
 });
+
 
 $(function () {
 	$('.single-item').slick({
@@ -25,6 +25,7 @@ $(function () {
 		cssEase: 'linear'
 	});
 });
+
 
 $(function () {
 	$("#country, #companyCountry").countrySelect({
@@ -38,6 +39,7 @@ $(function () {
 	});
 });
 
+
 var input = document.querySelector("#phoneNumber, #contactPhoneNumber,#companyPhoneNumber");
 var locale = window.intlTelInput(input, {
 	initialCountry: "auto",
@@ -49,6 +51,7 @@ var locale = window.intlTelInput(input, {
 	},
 	utilsScript: "js/utils.js" // just for formatting/placeholders etc
 });
+
 
 var input = document.querySelector("#contactPhoneNumber");
 window.intlTelInput(input, {
