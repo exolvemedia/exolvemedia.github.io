@@ -14001,8 +14001,10 @@ body:before {
 	content: "";
 	position: absolute;
 	z-index: -1;
+/*
 	background: -webkit-gradient(linear, left top, right bottom, from(#D7BBEA), to(#65A8F1));
 	background: linear-gradient(to bottom right, #D7BBEA, #65A8F1);
+*/
 	top: 0px;
 	left: 0px;
 	bottom: 0px;
